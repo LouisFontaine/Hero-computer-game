@@ -36,9 +36,9 @@ void paintString(char *text, int x, int y, TTF_Font *font)
     SDL_Color foregroundColor;
 
     //Nous définissons la couleur sur le noir
-    foregroundColor.r = 0;
-    foregroundColor.g = 0;
-    foregroundColor.b = 0;
+    foregroundColor.r = 255;
+    foregroundColor.g = 255;
+    foregroundColor.b = 255;
 
 
     //Avec SDL_TTF, nous génerons la chaine de caractère à écrire

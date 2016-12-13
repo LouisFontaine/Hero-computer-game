@@ -103,7 +103,6 @@ void paintPauseMenu(void)
     //On affiche juste pause à l'écran
     sprintf(text, "** PAUSE **");
     paintString(text, 470, 350, font);
-
 }
 
 /**Fonction qui relance le menu start à la fin du jeu*/
@@ -126,7 +125,7 @@ void paintEndMenu(void)
 
     paintImage(game.fondMenuStart, 0, 0);
     sprintf(text, "VOUS AVEZ GAGNE !");
-    paintString(text, 295, 400, font);
+    paintString(text, 295, 300, font);
     sprintf(text, "APPUYEZ SUR ENTREE POUR CONTINUER");
-    paintString(text, 50, 600, font);
+    paintString(text, 50, 400, font);
 }

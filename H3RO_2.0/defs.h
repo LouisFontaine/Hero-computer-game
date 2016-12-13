@@ -71,7 +71,7 @@
 #define MONSTRES_MAX 6
 
 //Nombre maximum de levels
-#define LEVEL_MAX 3
+#define LEVEL_MAX 1
 
 //Nombre maximum de projectiles sur l'écran
 #define PROJECTILES_MAX 3
