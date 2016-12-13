@@ -1,4 +1,5 @@
 /**Fichier permettant d'afficher la map et de tester les collisions du joueur et des monstres avec la map*/
+
 #include "map.h"
 
 /**Fonction pour lire le fichier de la map et puis la charger*/
@@ -11,7 +12,6 @@ void loadMap(char *name)
     if (fp == NULL)
     {
         printf("Failed to open map %s\n", name);
-
         exit(1);
     }
 
@@ -82,10 +82,8 @@ void paintMap(void)
 
             //nous blittons la bonne tile aux bonnes coordonnées
             paintTile(map.tileSet, x, y, xsource, ysource);
-
             mapX++;
         }
-
         mapY++;
     }
 
@@ -110,12 +108,10 @@ void saveMap(char *name)
     }
 
     //Sinon on sauvegarde la map
-    for (y=0;y<MAX_MAP_Y;y++)
+    for (y = 0; y < MAX_MAP_Y; y++)
     {
-        for (x=0;x<MAX_MAP_X;x++)
-        {
-            fprintf(fp, "%d ", map.tile[y][x]);
-        }
+        for (x = 0; x < MAX_MAP_X ; x++) fprintf(fp, "%d ", map.tile[y][x]);
+
         fprintf(fp, "\n");
     }
 
@@ -131,7 +127,7 @@ void reinitMap(char *name)
 
     fp = fopen(name, "wb+");
 
-    //Si on peut pas ouvrir le fichier on quitte
+    //Si on ne peut pas ouvrir le fichier on quitte
     if (fp == NULL)
     {
         printf("Failed to open map %s\n", name);
@@ -139,15 +135,12 @@ void reinitMap(char *name)
     }
 
     //Remplit la map de 0
-    for (y=0;y<MAX_MAP_Y;y++)
+    for (y = 0; y < MAX_MAP_Y; y++)
     {
-        for (x=0;x<MAX_MAP_X;x++)
-        {
-            fprintf(fp, "0 ");
-        }
+        for (x = 0; x < MAX_MAP_X; x++) fprintf(fp, "0 ");
+
         fprintf(fp, "\n");
     }
-
     //On referme le fichier
     fclose(fp);
  }
