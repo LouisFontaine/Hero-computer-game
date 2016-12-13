@@ -83,7 +83,6 @@ SDL_Surface *loadImage(char *name)
     if (image == NULL)
     {
         printf("Failed to convert image %s to native format\n", name);
-
         return NULL;
     }
     return image;
@@ -94,6 +93,7 @@ void delay(unsigned int frameLimit)
 {
     unsigned int ticks = SDL_GetTicks();
     if (frameLimit < ticks) return;
+
     if (frameLimit > ticks + 16) SDL_Delay(16);
     else SDL_Delay(frameLimit - ticks);
 }
