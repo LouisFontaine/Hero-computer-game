@@ -1,5 +1,6 @@
 #include "structs.h"
-//Structures globales utilisées
+
+// Structures globales utilisées
 extern Input input;
 extern Map map;
 

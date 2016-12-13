@@ -5,6 +5,6 @@ extern Gestion game;
 extern GameObject player;
 extern Map map;
 
-// Prototypes
+//Prototypes
 extern SDL_Surface *loadImage(char *name);
 

@@ -12,7 +12,7 @@ extern void changeMap(void);
 extern void loadPlatform(void);
 extern void freeListe(void);
 
-//Structures globales utilisées
+// Structures globales utilisées
 extern Gestion game;
 extern Map map;
 extern TTF_Font *font;

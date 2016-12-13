@@ -11,7 +11,7 @@ extern void changeMap(void);
 extern void initializePlayer(void);
 extern void initPlatform(int x, int y, int type);
 
-//Structures globales utilisées
+// Structures globales utilisées
 extern Gestion game;
 extern Map map;
 extern GameObject Platform[];

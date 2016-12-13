@@ -1,6 +1,6 @@
 #include "structs.h"
 
-//Prototypes des fonctions utilisées
+// Prototypes des fonctions utilisées
 extern void paintMap(void);
 extern void paintanimatedplayer(void);
 extern void paintObject(GameObject *entity);
@@ -10,7 +10,7 @@ extern void paintProjectiles(void);
 extern void paintPlatform(void);
 
 
-//Structures globales utilisées
+// Structures globales utilisées
 extern Gestion game;
 extern Map map;
 extern GameObject player;

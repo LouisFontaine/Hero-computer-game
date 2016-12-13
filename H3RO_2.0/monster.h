@@ -1,6 +1,6 @@
 #include "structs.h"
 
-//Structures globales utilisées
+// Structures globales utilisées
 extern GameObject monster[];
 extern Gestion game;
 extern GameObject player;

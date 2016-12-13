@@ -19,39 +19,38 @@ typedef struct Input
 /**Structure utilisée pour les monstres et le héro*/
 typedef struct GameObject
 {
-    //Sprite du héros
+    // Sprite du héros
     SDL_Surface *sprite;
 
-    //Points de vie
+    // Points de vie
     int life, invincibleTimer;
 
-    //coordonnées du héro
+    // Coordonnées du héro
     int x, y;
 
-    //largeur et hauteur du héro
+    // Largeur et hauteur du héro
     int h, w;
 
-    //Checkpoint
+    // Checkpoint
     int checkpointActif;
     int respawnX, respawnY;
 
-    //Variables utilisées pour l'animation du héro
+    // Variables utilisées pour l'animation du héro
     int frameNumber, frameTimer;
     int state, direction;
 
-    //Variables opur les collision et le temps de mort
+    // Variables pour les collisions et le temps de mort
     int onGround, timerMort;
     float dirX, dirY;
-    int saveX, saveY;
 
-    //Variable pour le double saut
+    // Variable pour le double saut
     int jump;
 
-    //Variables pour gérer les Plateformes
+    // Variables pour gérer les Plateformes
     int beginX, beginY;
     int type, player_dessus;
 
-    //Variables pour gérer les powerup
+    // Variables pour gérer les powerups
     int onCanabis;
     int timeSinceCanabis;
 
@@ -78,17 +77,17 @@ typedef struct Gestion
     int nombreProjectiles;
     int nombrePlatforms;
 
-    //HUD
+    // HUD
     SDL_Surface *HUD_vie, *Shuriken_image, *Platform;
     int lives, etoiles;
 
-    //Musiques
+    // Musiques
     Mix_Music  *musique;
 
-    //Son d'animation
+    // Son d'animation
     Mix_Chunk  *bumper_sound, *destroy_sound, *jump_sound, *star_sound;
 
-    //Gestion des menus
+    // Gestion des menus
     int onMenu, menuType, choice;
     SDL_Surface *fondMenuStart;
 
@@ -100,13 +99,13 @@ typedef struct Map
     SDL_Surface *background, *tileSet;
     SDL_Surface *tileSetB;
 
-    //Coordonnées de depart pour afficher la map
+    // Coordonnées de depart pour afficher la map
     int startX, startY;
 
-    //coordonnées d'arrivée pour l'affichage de la map
+    // Coordonnées d'arrivée pour l'affichage de la map
     int maxX, maxY;
 
-    //Tableau 2D représentant la map
+    // Tableau 2D représentant la map
     int tile[MAX_MAP_Y][MAX_MAP_X];
 
     // Timer et numéro du tileset à afficher pour animer la map
@@ -114,9 +113,13 @@ typedef struct Map
 
 } Map;
 
+/**Structure liste qui va contenir des entiers permettants de définir l'ordre de passage des carttes dans le jeu*/
 typedef struct node{
+    //Données contenues dans la liste
     int info;
     int glob;
+
+    // Pointeurs vers l'élément suivant de la liste
     struct node* succ;
 }node;
 
