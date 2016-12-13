@@ -62,13 +62,13 @@ void doPlatform(void)
                 //On oubli pas de deplacer le joueur avec si il est dessus
                 if (Platform[i].player_dessus == 1) player.y += PLATFORM_SPEED;
             }
-            //Au bout d'un deplacement de 5 cases on inverse le sens de deplacement pour pas
-            //qu'elles se deplacent à l'infini
+            //Au bout d'un déplacement de 5 cases on inverse le sens de déplacement pour pas
+            //qu'elles se déplacent à l'infini
             if (Platform[i].y > Platform[i].beginY + 5 * TILE_SIZE) Platform[i].direction = UP;
             if (Platform[i].y < Platform[i].beginY) Platform[i].direction = DOWN;
         }
 
-        // Pour le deplacement des plateformes de gauche à droite c'est pareil pas besoin de commentaire
+        // Pour le deplacement des plateformes de gauche à droite c'est pareil
         else
         {
             if (Platform[i].direction == RIGHT)
@@ -91,9 +91,7 @@ void doPlatform(void)
 void paintPlatform(void)
 {
     int i;
+
     //Boucle for pour parcourir toutes les plateformes
-    for ( i = 1; i <= game.numberPlatforms; i++ )
-    {
-        paintImage(game.Platform, Platform[i].x - map.startX, Platform[i].y - map.startY);
-    }
+    for ( i = 1; i <= game.numberPlatforms; i++ ) paintImage(game.Platform, Platform[i].x - map.startX, Platform[i].y - map.startY);
 }
