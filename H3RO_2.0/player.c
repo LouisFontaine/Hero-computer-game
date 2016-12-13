@@ -17,7 +17,7 @@ void initializePlayer(void)
     game.nombreProjectiles = 0;
 
     //Initialisation du nombre de plateformes
-    game.nombrePlatforms = 0;
+    game.numberPlatforms = 0;
 
     //Charge l'animation de départ du joueur
     modifyAnimation(&player, "graphics/walkright.png");
@@ -61,7 +61,7 @@ void initializePlayer(void)
 
 }
 
-/**Fonction permettant d'animer le joueur en fonction des imputs*/
+/**Fonction permettant d'animer le joueur en fonction des inputs*/
 void renewPlayer(void)
 {
 
@@ -83,7 +83,7 @@ void renewPlayer(void)
         player.dirY = MAX_FALL_SPEED;
     }
 
-    //Change la direction du hero si le imput est à gauche
+    //Change la direction du hero si le input est à gauche
     if (input.left == 1)
     {
         if (player.onCanabis == 1 && player.onCocaine == 0) player.dirX -= PLAYER_SPEED / 2;
@@ -150,13 +150,13 @@ void renewPlayer(void)
             player.jump = 0;
             playSoundFx(JUMP);
         }
-        //On réinitialise les imputs
+        //On réinitialise les inputs
         input.jump = 0;
     }
 
     if(input.enter == 1)
     {
-        //on met le game. en pause si il y a l'imput adéquat
+        //on met le game. en pause si il y a l'input adéquat
         game.onMenu = 1;
         game.menuType = PAUSE;
         input.enter = 0;

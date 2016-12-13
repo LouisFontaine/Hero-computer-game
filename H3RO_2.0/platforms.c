@@ -8,7 +8,7 @@ void loadPlatform(void)
     //Chargement de l'image
     game.Platform = loadImage("graphics/Platform.png");
 
-    //Sinon on affiche une erreure dans la console
+    //Sinon on affiche une erreur dans la console
     if (game.Platform == NULL)
     {
         printf("Impossible de charger l'image de la Platform : graphics/Platform.png/n");
@@ -19,34 +19,33 @@ void loadPlatform(void)
 /**Fonction qui permet de charger toutes les plateformes*/
 void initPlatform(int x, int y, int type)
 {
+    // On incrémente le nombre de plateformes dans notre jeu
+    game.numberPlatforms++;
 
-    // On incremente le nombre de plateforme dans notre jeu
-    game.nombrePlatforms++;
-
-    //Si il y en a trop on quitte le jeu
-    if (game.nombrePlatforms > PLATFORMS_MAX)
+    //S'il y en a trop on quitte le jeu
+    if (game.numberPlatforms > PLATFORMS_MAX)
     {
-        printf("Trop de Platforms initialisees !\nEnlevez-en ou changez leur nombre max.\n");
+        printf("Trop de Plateformes initialisees !\nEnlevez-en ou changez leur nombre max.\n");
         exit(1);
     }
 
     //On remplit la structure
-    Platform[game.nombrePlatforms].x = Platform[game.nombrePlatforms].beginX = x;
-    Platform[game.nombrePlatforms].y = Platform[game.nombrePlatforms].beginY = y;
-    Platform[game.nombrePlatforms].w = game.Platform->w;
-    Platform[game.nombrePlatforms].h = game.Platform->h;
-    Platform[game.nombrePlatforms].type = type;
+    Platform[game.numberPlatforms].x = Platform[game.numberPlatforms].beginX = x;
+    Platform[game.numberPlatforms].y = Platform[game.numberPlatforms].beginY = y;
+    Platform[game.numberPlatforms].w = game.Platform->w;
+    Platform[game.numberPlatforms].h = game.Platform->h;
+    Platform[game.numberPlatforms].type = type;
 
     //On indique son type (2 si elle monte sinon c'est qu'elle va à droite)
-    if (Platform[game.nombrePlatforms].type == 2) Platform[game.nombrePlatforms].direction = UP;
-    else Platform[game.nombrePlatforms].direction = RIGHT;
+    if (Platform[game.numberPlatforms].type == 2) Platform[game.numberPlatforms].direction = UP;
+    else Platform[game.numberPlatforms].direction = RIGHT;
 }
 
 /**Fonction animant les plateformes*/
 void doPlatform(void)
 {
     int i;
-    for ( i = 1; i <= game.nombrePlatforms; i++ )
+    for ( i = 1; i <= game.numberPlatforms; i++ )
     {
         // Pour le deplacement des plateformes de haut en bas
         if (Platform[i].type == 2)
@@ -93,7 +92,7 @@ void paintPlatform(void)
 {
     int i;
     //Boucle for pour parcourir toutes les plateformes
-    for ( i = 1; i <= game.nombrePlatforms; i++ )
+    for ( i = 1; i <= game.numberPlatforms; i++ )
     {
         paintImage(game.Platform, Platform[i].x - map.startX, Platform[i].y - map.startY);
     }
