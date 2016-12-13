@@ -1,31 +1,31 @@
-/**Fichier contenant les fonctions qui permettent d'afficher le menu de démarage du
+/**Fichier contenant les fonctions qui permettent d'afficher le menu de dÃ©marage du
 game.et le menu pause*/
 
 #include "menu.h"
 
-/**Fonction qui va lire les imputs et qui va déplacer le curseur de start à quit en
+/**Fonction qui va lire les imputs et qui va dÃ©placer le curseur de start Ã  quit en
 fonction du choix de l'utilisateur et qui va se charger de lancer le game. quand
-l'utilisateur le décide*/
+l'utilisateur le dÃ©cide*/
 void renewStartMenu(void)
 {
-    //Quand on appuie sur flêche du bas
+    //Quand on appuie sur flÃªche du bas
     if(input.down == 1)
     {
-        //Si choice égual à O (start), on le met sur 1 (quit)
+        //Si choice Ã©gual Ã  O (start), on le met sur 1 (quit)
         if(game.choice == 0) game.choice++;
         input.down = 0;
     }
 
-    //Quand on appuie sur flêche du haut
+    //Quand on appuie sur flÃªche du haut
     if(input.up == 1)
     {
-        //Si choice égual à 1 (Quit), on le met sur 0 (Start)
+        //Si choice Ã©gual Ã  1 (Quit), on le met sur 0 (Start)
         if(game.choice == 1) game.choice--;
         input.up = 0;
     }
 
-    //Quand on appuie sur  la touche Enter et qu'on est déjà sur Start (0) alors on
-    //recharge le game.et on quitte l'état menu (game.onMenu = 0)
+    //Quand on appuie sur  la touche Enter et qu'on est dÃ©jÃ  sur Start (0) alors on
+    //recharge le game.et on quitte l'Ã©tat menu (game.onMenu = 0)
     if(input.enter)
     {
         if(game.choice == 0)
@@ -33,7 +33,7 @@ void renewStartMenu(void)
             player.checkpointActif = 0;
             initializePlayer();
             changeMap();
-            //On réinitialise les variables du game.pour commencer une nouvelle partie
+            //On rÃ©initialise les variables du game.pour commencer une nouvelle partie
             game.lives = 3;
             game.etoiles = 0;
             game.onMenu = 0;
@@ -48,12 +48,12 @@ void renewStartMenu(void)
 void paintStartMenu(void)
 {
 
-    //On utilise une chaine de carractère qui va contenir notre texte à afficher
+    //On utilise une chaine de carractÃ¨re qui va contenir notre texte Ã  afficher
     char text[200];
 
     paintImage(game.fondMenuStart, 0, 0);
 
-    //Si le curseur n'est pas sur l'élément on l'affiche normalement
+    //Si le curseur n'est pas sur l'Ã©lÃ©ment on l'affiche normalement
     if(game.choice != 0)
     {
         sprintf(text, "  START");
@@ -65,7 +65,7 @@ void paintStartMenu(void)
         paintString(text, 440, 380, font);
     }
 
-     //Si le curseur est sur l'élément on rajoute "-"
+     //Si le curseur est sur l'Ã©lÃ©ment on rajoute "-"
     if(game.choice == 0)
     {
         sprintf(text, "- START");
@@ -79,7 +79,7 @@ void paintStartMenu(void)
 
     //On affiche le copyright Team GHB original creator of awesome games
     sprintf(text, "TEAM GHB, 2016");
-    paintString(text, 350, 500, font);
+    paintString(text, 350, 450, font);
 
 
 }
@@ -89,7 +89,7 @@ rappuie sur enter*/
 void renewPauseMenu(void)
 {
 
-    //Si l'utilisateur appuie sur Enter alors quitte l'état Onmenu
+    //Si l'utilisateur appuie sur Enter alors quitte l'Ã©tat Onmenu
     if(input.enter)
     {
         game.onMenu = 0;
@@ -103,7 +103,7 @@ void paintPauseMenu(void)
 {
     char text[200];
 
-    //On affiche juste pause à l'écran
+    //On affiche juste pause Ã  l'Ã©cran
     sprintf(text, "** PAUSE **");
     paintString(text, 470, 350, font);
 
@@ -111,7 +111,7 @@ void paintPauseMenu(void)
 
 void renewEndMenu(void)
 {
-    //Si l'utilisateur appuie sur Enter alors quitte l'état On passe au menu start
+    //Si l'utilisateur appuie sur Enter alors quitte l'Ã©tat On passe au menu start
     if(input.enter)
     {
         //On ne nchange pas l'state onMenu mais on change le type de menu
@@ -122,7 +122,7 @@ void renewEndMenu(void)
 
 void paintEndMenu(void)
 {
-    //On utilise une chaine de carractère qui va contenir notre texte à afficher
+    //On utilise une chaine de carractÃ¨re qui va contenir notre texte Ã  afficher
     char text[200];
 
     paintImage(game.fondMenuStart, 0, 0);
