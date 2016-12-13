@@ -66,26 +66,22 @@ void renewMonsters(void)
             if (monster[i].dirY >= MAX_FALL_SPEED)
                 monster[i].dirY = MAX_FALL_SPEED;
 
-            //Test de si le moonstre est arrive dans un mur
-            if (monster[i].x == monster[i].saveX || checkFall(monster[i]) == 1 )
+            if (player.x - monster[i].x >= 0)
             {
-                if (monster[i].direction == LEFT)
-                {
-                    monster[i].direction = RIGHT;
-                    modifyAnimation(&monster[i], "graphics/monster1right.png");
-                }
-                else
-                {
-                    monster[i].direction = LEFT;
-                    modifyAnimation(&monster[i], "graphics/monster1.png");
-                }
+                monster[i].direction = RIGHT;
+                modifyAnimation(&monster[i], "graphics/monster1right.png");
             }
+            else
+            {
+                monster[i].direction = LEFT;
+                modifyAnimation(&monster[i], "graphics/monster1.png");
+            }
+            //Test de si le monstre est arrive dans un mur ou dans le vide
+            if (checkFall(monster[i]) == 1) monster[i].dirX = 0;
 
             //Deplacement du monstre en fonction de la direction du monstre
-            if(monster[i].direction == LEFT)
-                monster[i].dirX -= 2;
-            else
-                monster[i].dirX += 2;
+            else if(monster[i].direction == LEFT) monster[i].dirX -= 2;
+            else monster[i].dirX += 2;
 
 
             //On sauvegarde les coordonnées du monstre pour pouvoir gérer les demi-tours
