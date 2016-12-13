@@ -99,19 +99,19 @@
                 {
                     case SDL_BUTTON_LEFT:
                         input.add = 1;
-                   break;
+                    break;
 
                     case SDL_BUTTON_MIDDLE:
                         input.remove = 1;
-                   break;
+                    break;
 
                     case SDL_BUTTON_RIGHT:
                         input.copy = 1;
-                   break;
+                    break;
 
                     case SDL_BUTTON_WHEELUP:
                         input.next = 1;
-                   break;
+                    break;
 
                     case SDL_BUTTON_WHEELDOWN:
                         input.previous = 1;
@@ -121,14 +121,14 @@
                     default:
                     break;
                 }
-           break;
+            break;
 
             case SDL_MOUSEBUTTONUP:
                 switch(event.button.button)
                 {
                     case SDL_BUTTON_LEFT:
                         input.add = 0;
-                   break;
+                    break;
 
                     case SDL_BUTTON_MIDDLE:
                         input.remove = 0;
@@ -153,7 +153,7 @@
 
  void update(void)
 {
-    //On récupere ici les coordonnées de la souris
+    //On récupère ici les coordonnées de la souris
     cursor.x = input.mouseX;
     cursor.y = input.mouseY;
 
@@ -204,7 +204,7 @@
     //Gestion pour le remplacement de la tile
     if (input.add == 1) map.tile[(map.startY + cursor.y) / TILE_SIZE][(map.startX + cursor.x) / TILE_SIZE] = cursor.tileID;
 
-    //Pareil sauf qu'on atribue la valeure 0 à la tile pointée
+    //Pareil sauf qu'on atribue la valeurs 0 à la tile pointée
     else if (input.remove == 1)
     {
         map.tile[(map.startY + cursor.y) / TILE_SIZE][(map.startX + cursor.x) / TILE_SIZE] = BLANK_TILE;
@@ -260,8 +260,5 @@
     }
 
     //On rajoute un délai entre 2 tours de boucle pour que le scrolling soit moins rapide
-    if (input.left == 1 || input.right == 1 || input.up == 1 || input.down == 1)
-    {
-        SDL_Delay(30);
-    }
+    if (input.left == 1 || input.right == 1 || input.up == 1 || input.down == 1) SDL_Delay(30);
 }

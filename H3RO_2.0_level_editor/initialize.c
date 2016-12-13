@@ -34,7 +34,7 @@ void init(char *title)
 /**Fonction permettant de charger la map et le tileset*/
 void load(void)
 {
-    //Création d'un tableau pour contenir le nomde notre fichier
+    //Création d'un tableau pour contenir le nom de notre fichier
     char file[120];
 
     //Si le fond n'est pas chargé, nous le chargeons
