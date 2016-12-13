@@ -44,7 +44,7 @@ void renewMonsters(void)
     for ( i = 0; i < game.nombreMonstres; i++ )
     {
         // On teste les collisions entre les monstres et les projectiles
-        for ( a = 0; a < game.nombreProjectiles; a++ )
+        for ( a = 0; a < game.numberProjectiles; a++ )
         {
             if (collide(&monster[i], &projectile[a]))
             {
@@ -52,8 +52,8 @@ void renewMonsters(void)
                 monster[i].timerMort = 1;
                 playSoundFx(DESTROY);
 
-                projectile[a] = projectile[game.nombreProjectiles-1];
-                game.nombreProjectiles--;
+                projectile[a] = projectile[game.numberProjectiles-1];
+                game.numberProjectiles--;
             }
         }
 
