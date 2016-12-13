@@ -74,7 +74,7 @@ typedef struct Gestion
     SDL_Surface *screen;
     int nombreMonstres;
     int level;
-    int nombreProjectiles;
+    int numberProjectiles;
     int numberPlatforms;
 
     //HUD
