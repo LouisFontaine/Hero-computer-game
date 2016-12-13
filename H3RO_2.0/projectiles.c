@@ -2,30 +2,30 @@
 
 #include "projectiles.h"
 
-/**Fonction qui permet de creer un projectile*/
+/**Fonction qui permet de créer un projectile*/
 void createProjectile(void)
 {
-    //Si on peut , on cré un projectile
-    if (game.nombreProjectiles < PROJECTILES_MAX)
+    //Si on peut, on créé un projectile
+    if (game.numberProjectiles < PROJECTILES_MAX)
     {
         //On enregistre sa taille dans la structure
-        projectile[game.nombreProjectiles].w = game.Shuriken_image->w;
-        projectile[game.nombreProjectiles].h = game.Shuriken_image->h;
+        projectile[game.numberProjectiles].w = game.Shuriken_image->w;
+        projectile[game.numberProjectiles].h = game.Shuriken_image->h;
 
-        //Direction de la boule de feu en fonction de la direction du personnage
+        //Direction du projectile en fonction de la direction du personnage
         if ( player.direction == RIGHT )
-            {
-                projectile[game.nombreProjectiles].x = player.x + 15;
-                projectile[game.nombreProjectiles].y = player.y + 35;
-                projectile[game.nombreProjectiles].direction = 1;
-            }
+        {
+            projectile[game.numberProjectiles].x = player.x + 15;
+            projectile[game.numberProjectiles].y = player.y + 35;
+            projectile[game.numberProjectiles].direction = 1;
+        }
         else
-            {
-                projectile[game.nombreProjectiles].x = player.x - 15;
-                projectile[game.nombreProjectiles].y = player.y + 35;
-                projectile[game.nombreProjectiles].direction = 0;
-            }
-        game.nombreProjectiles++;
+        {
+            projectile[game.numberProjectiles].x = player.x - 15;
+            projectile[game.numberProjectiles].y = player.y + 35;
+            projectile[game.numberProjectiles].direction = 0;
+        }
+        game.numberProjectiles++;
     }
 }
 
@@ -34,28 +34,21 @@ void doProjectiles(void)
 {
     int i;
     //On passe en boucle tous les projectiles
-    for ( i = 0; i < game.nombreProjectiles; i++ )
+    for ( i = 0; i < game.numberProjectiles; i++ )
     {
-        //On deplace vers la droite si il le faut
-        if (projectile[i].direction == 1)
-        {
-            projectile[i].x += 10;
-        }
-        //On deplace vers la gauche sinon
-        else
-        {
-            projectile[i].x -= 10;
-        }
+        //On le fait se déplacer à droite si c'est sa direction
+        if (projectile[i].direction == 1) projectile[i].x += 10;
 
-        //On supprime le projectil si il sort de l'écran
+        //On deplace vers la gauche sinon
+        else projectile[i].x -= 10;
+
+        //On supprime le projectile s'il sort de l'écran
         if (projectile[i].x < map.startX ||projectile[i].x > map.startX + SCREEN_WIDTH)
         {
-             projectile[i] = projectile[game.nombreProjectiles-1];
-             game.nombreProjectiles--;
+             projectile[i] = projectile[game.numberProjectiles-1];
+             game.numberProjectiles--;
         }
-
     }
-
 }
 
 /**Fonction qui affiche tous les projectile*/
@@ -63,8 +56,5 @@ void paintProjectiles(void)
 {
     int i;
     //boucle for pour afficher tous les projectciles
-    for ( i = 0; i < game.nombreProjectiles; i++ )
-    {
-        paintImage(game.Shuriken_image, projectile[i].x - map.startX, projectile[i].y - map.startY);
-    }
+    for ( i = 0; i < game.numberProjectiles; i++ ) paintImage(game.Shuriken_image, projectile[i].x - map.startX, projectile[i].y - map.startY);
 }
