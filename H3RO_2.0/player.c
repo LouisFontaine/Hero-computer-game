@@ -14,7 +14,7 @@ void initializePlayer(void)
     player.invincibleTimer = 0;
 
     //Initialisation du nombre de projectiles
-    game.nombreProjectiles = 0;
+    game.numberProjectiles = 0;
 
     //Initialisation du nombre de plateformes
     game.numberPlatforms = 0;
@@ -22,11 +22,11 @@ void initializePlayer(void)
     //Charge l'animation de départ du joueur
     modifyAnimation(&player, "graphics/walkright.png");
 
-    //Initialisation de la direction et de l'état de depart
+    //Initialisation de la direction et de l'état de départ
     player.direction = RIGHT;
     player.state = IDLE;
 
-    //Initialisation des coordonnées de depart
+    //Initialisation des coordonnées de départ
     if(player.checkpointActif == 1)
     {
         player.x = player.respawnX;
@@ -46,44 +46,42 @@ void initializePlayer(void)
     player.timerMort = 0;
     player.onGround = 0;
 
-    //Initialisation du nombre de monstre
+    //Initialisation du nombre de monstres
     game.nombreMonstres = 0;
 
-    //Initialisation des effets des poxersUp
+    //Initialisation des effets des powersUp
     player.onCanabis = 0;
     player.timeSinceCanabis = - TIME_OF_POWER_UP_EFFECTS;
+
     player.onCocaine = 0;
     player.timeSinceCocaine = - TIME_OF_POWER_UP_EFFECTS;
+
     player.onEcstasy = 0;
     player.timeSinceEcstasy = - TIME_OF_POWER_UP_EFFECTS;
+
     player.onMethamphetamine = 0;
     player.timeSinceMethamphetamine = -TIME_OF_POWER_UP_EFFECTS;
-
 }
 
 /**Fonction permettant d'animer le joueur en fonction des inputs*/
 void renewPlayer(void)
 {
 
-  //Timer pour qu'on ne gère le joueur que si il est en vie
+  //Timer pour qu'on ne gère le joueur que s'il est en vie
   if (player.timerMort == 0)
   {
-    if(player.invincibleTimer > 0)
-        player.invincibleTimer--;
+    if(player.invincibleTimer > 0) player.invincibleTimer--;
 
-    //On remet le vecteur de direction à 0 pour pas que la vitesse augment progressivement
+    //On remet le vecteur de direction à 0 pour ne pas que la vitesse augmente progressivement
     player.dirX = 0;
 
-    //On soumet le perso à la gravité et aux effects des powerups
+    //On soumet le perso à la gravité et aux effets des powerups
     player.dirY += GRAVITY_SPEED;
 
-    //On limite la gravité pour pas que le perso tombe trop vite
-    if (player.dirY >= MAX_FALL_SPEED)
-    {
-        player.dirY = MAX_FALL_SPEED;
-    }
+    //On limite la gravité pour ne pas que le perso tombe trop vite
+    if (player.dirY >= MAX_FALL_SPEED) player.dirY = MAX_FALL_SPEED;
 
-    //Change la direction du hero si le input est à gauche
+    //Change la direction du héro si le input est à gauche
     if (input.left == 1)
     {
         if (player.onCanabis == 1 && player.onCocaine == 0) player.dirX -= PLAYER_SPEED / 2;
@@ -114,19 +112,15 @@ void renewPlayer(void)
     //Fait l'annimation d'inactivité si le jooueur est sur le sol et qu'il ne fait rien
     else if(input.right == 0 && input.left == 0 && player.onGround == 1)
     {
-        //On varifie que le joueur n'était pas deja innactif pour pas recharger l'animation
+        //On vérifie que le joueur n'était pas déja innactif pour ne pas recharger l'animation
         if(player.state != IDLE)
         {
             player.state = IDLE;
+
             //Animation en fonction de la direction
-            if(player.direction == LEFT)
-            {
-                modifyAnimation(&player, "graphics/IdleLeft.png");
-            }
-            else
-            {
-                modifyAnimation(&player, "graphics/IdleRight.png");
-            }
+            if(player.direction == LEFT) modifyAnimation(&player, "graphics/IdleLeft.png");
+
+            else modifyAnimation(&player, "graphics/IdleRight.png");
         }
     }
 
@@ -142,7 +136,7 @@ void renewPlayer(void)
             player.jump = 1;
             playSoundFx(JUMP);
         }
-        //gestion deuxième saut
+        //gestion du deuxième saut
         else if (player.jump == 1)
         {
             if (player.onEcstasy == 1) player.dirY = -JUMP_HEIGHT - 3;
@@ -156,7 +150,7 @@ void renewPlayer(void)
 
     if(input.enter == 1)
     {
-        //on met le game. en pause si il y a l'input adéquat
+        //on met le jeu en pause si il y a l'input adéquat
         game.onMenu = 1;
         game.menuType = PAUSE;
         input.enter = 0;
@@ -170,9 +164,7 @@ void renewPlayer(void)
     }
 
     //réactive la possibilité du double saut des qu'on est sur le sol
-    if (player.onGround == 1)
-        player.jump = 1;
-
+    if (player.onGround == 1) player.jump = 1;
 
     //Animation du saut
     if(player.onGround == 0)
@@ -187,10 +179,9 @@ void renewPlayer(void)
             player.state = JUMP_LEFT;
             modifyAnimation(&player, "graphics/JumpLeft.png");
         }
-
     }
 
-    //On detecte les collisions et on centre le personnage
+    //On détecte les collisions et on centre le personnages
     mapCollision(&player);
     centerScrollingOnPlayer();
   }
@@ -216,7 +207,7 @@ void renewPlayer(void)
             changeMap();
         }
     }
- }
+}
 
 /**Fonction qui a pour but de calculer les coordonnées d'affichage de la map en fonction
 des coordonnées du joueur c'est à dire un demi ecran avant le joueur*/
@@ -233,18 +224,18 @@ void centerScrollingOnPlayer(void)
     else if (map.startY + SCREEN_HEIGHT >= map.maxY) map.startY = map.maxY - SCREEN_HEIGHT;
 }
 
-/**Fonction qui au ojueur de recuperer les etoiles et les coeurs*/
+/**Fonction qui au joueur de récuperer les étoiles et les coeurs*/
 void getItem(int itemNumber)
 {
     switch(itemNumber)
     {
         //Pour les etoiles
         case 1:
-            //On augment de 1 le nombre d'étoiles du joueur
+            //On augmente de 1 le nombre d'étoiles du joueur
             game.etoiles++;
             playSoundFx(STAR);
 
-            //Quand il y a 100 étoiles on reinitialise le compteur et on rajoute un coeur
+            //Quand il y a 100 étoiles on réinitialise le compteur et on rajoute un coeur
             if(game.etoiles >= 100)
             {
                 game.etoiles = 0;
@@ -271,18 +262,19 @@ void getItem(int itemNumber)
             player.timeSinceCocaine = SDL_GetTicks();
         break;
 
-        //Pour le powerUp Ecstasy
+        //Pour le powerUp Methamphetamine
         case 5:
             player.onMethamphetamine = 1;
             player.timeSinceMethamphetamine = SDL_GetTicks();
         break;
 
+        //Pour le powerUp Champi
         case 6:
             player.onChampi = 1;
             player.timeSinceChampi = SDL_GetTicks();
-
         break;
 
+        //Pour le powerUp Ecstasy
         case 7:
             player.onEcstasy = 1;
             player.timeSinceEcstasy = SDL_GetTicks();
@@ -299,10 +291,17 @@ void verifyPowerUp(int timeOfTheGame)
 {
     char file[200];
 
+    //On remet les onPowerUP à 0 si le temps passé est de 10 secondes
+
     if (player.onCanabis == 1 && timeOfTheGame > player.timeSinceCanabis + 10 * 1000) player.onCanabis = 0;
+
     if (player.onCocaine == 1 && timeOfTheGame > player.timeSinceCocaine + 10 * 1000) player.onCocaine = 0;
+
     if (player.onEcstasy == 1 && timeOfTheGame > player.timeSinceEcstasy + 10 * 1000) player.onEcstasy = 0;
+
     if (player.onMethamphetamine == 1 && timeOfTheGame > player.timeSinceMethamphetamine + 10 * 1000) player.onMethamphetamine = 0;
+
+    //Le cas du champi on charge le nouveau tileset
     if (player.onChampi == 1)
     {
         sprintf(file, "graphics/tileset4.png");
@@ -310,6 +309,7 @@ void verifyPowerUp(int timeOfTheGame)
         sprintf(file, "graphics/tileset4B.png");
         map.tileSetB = loadImage(file);
     }
+    //puis on remet le tileset du niveau après les 10 secondes
     if (player.onChampi == 1 && timeOfTheGame > player.timeSinceChampi + 10 * 1000)
     {
         sprintf(file, "graphics/tileset%d.png", level->info);
