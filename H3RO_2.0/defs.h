@@ -76,7 +76,7 @@
 #define LEVEL_MAX 3
 
 //Nombre maximum de projectiles sur l'écran
-#define ProjectileS_MAX 3
+#define PROJECTILES_MAX 3
 
 //Constantes utilisées pour les plateformes
 #define PLATFORMS_MAX 50

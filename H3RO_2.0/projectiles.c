@@ -6,7 +6,7 @@
 void createProjectile(void)
 {
     //Si on peut , on cré un projectile
-    if (game.nombreProjectiles < ProjectileS_MAX)
+    if (game.nombreProjectiles < PROJECTILES_MAX)
     {
         //On enregistre sa taille dans la structure
         projectile[game.nombreProjectiles].w = game.Shuriken_image->w;
