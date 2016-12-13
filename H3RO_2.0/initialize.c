@@ -89,7 +89,7 @@ void load(void)
     game.HUD_vie = loadImage("graphics/life.png");
 
     //Nous chargeons le projectile et la plateforme
-    game.Shuriken_image = loadImage("graphics/shuriken.png");
+    game.Shuriken_image = loadImage("graphics/projectile.png");
     loadPlatform();
 
     //Lancement de la musique et des sons FX

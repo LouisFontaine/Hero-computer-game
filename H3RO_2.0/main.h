@@ -37,7 +37,7 @@ Gestion game;
 Map map;
 GameObject player;
 GameObject monster[MONSTRES_MAX];
-GameObject shuriken[10];
+GameObject projectile[10];
 GameObject Platform[50];
 liste level = NULL;
 

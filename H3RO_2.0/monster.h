@@ -5,7 +5,7 @@ extern GameObject monster[];
 extern Gestion game;
 extern GameObject player;
 extern Map map;
-extern GameObject shuriken[];
+extern GameObject projectile[];
 
 
 // Prototypes des fonctions utilisées

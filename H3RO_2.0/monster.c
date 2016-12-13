@@ -48,13 +48,13 @@ void renewMonsters(void)
         // On test les collisions entre les monstres et le boulles de feu
         for ( a = 0; a < game.nombreProjectiles; a++ )
         {
-            if (collide(&monster[i], &shuriken[a]))
+            if (collide(&monster[i], &projectile[a]))
             {
                 //Timer à 1 pour le tuer
                 monster[i].timerMort = 1;
                 playSoundFx(DESTROY);
 
-                shuriken[a] = shuriken[game.nombreProjectiles-1];
+                projectile[a] = projectile[game.nombreProjectiles-1];
                 game.nombreProjectiles--;
             }
         }
