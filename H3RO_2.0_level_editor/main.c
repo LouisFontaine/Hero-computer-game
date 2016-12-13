@@ -1,4 +1,5 @@
 /**Fichier principal du jeu*/
+
 #include "main.h"
 
 int main( int argc, char *argv[ ] )
@@ -20,7 +21,7 @@ int main( int argc, char *argv[ ] )
     while (go == 1)
     {
 
-        //On vérifie l'état des entrées (clavier puis plus tard joystick
+        //On vérifie l'état des entrées (clavier)
         getInput();
 
         //On affiche tout les éléments
@@ -30,7 +31,7 @@ int main( int argc, char *argv[ ] )
         update();
 
         //Gestion des 60 fps
-        //On doit donc attendre 16 ms entre chaque image (frame)
+        //On doit donc attendre 16 ms entre chaque image
         delay(frameLimit);
         frameLimit = SDL_GetTicks() + 16;
 
