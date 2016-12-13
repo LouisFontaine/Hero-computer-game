@@ -1,12 +1,12 @@
-/**Fichier contenant les fonctions qui gèrent les monstres dans le game.*/
+/**Fichier contenant les fonctions qui gèrent les monstres dans le jeu*/
 
 #include "monster.h"
 
-/**Fonction qui initialise les monstres dans le game. (graphiques, direction, etc..)*/
+/**Fonction qui initialise les monstres dans le jeu (graphiques, direction, etc..)*/
 void initializeMonster(int x, int y)
 {
-    /**On initialize tous les monstres du game. en parcourant le tableau de monstre jusqu'à
-    ce que on arrive au nombre de monstre max défini dans le def.h*/
+    /**On initialize tous les monstres du jeu en parcourant le tableau de monstres jusqu'à
+    ce qu'on arrive au nombre de monstre max défini dans le def.h*/
     if (game.nombreMonstres < MONSTRES_MAX )
     {
         //On charge l'image du monstre
@@ -19,7 +19,7 @@ void initializeMonster(int x, int y)
         monster[game.nombreMonstres].frameNumber = 0;
         monster[game.nombreMonstres].frameTimer = TIME_BETWEEN_2_FRAMES;
 
-        //Ses coordonnées pour le démarages vont envoyés en argument
+        //Ses coordonnées pour le démarrage vont être envoyées en argument
         monster[game.nombreMonstres].x = x;
         monster[game.nombreMonstres].y = y;
 
@@ -27,30 +27,28 @@ void initializeMonster(int x, int y)
         monster[game.nombreMonstres].w = MONSTER_WIDTH;
         monster[game.nombreMonstres].h = MONSTER_HEIGHT;
 
-        //On initialise les variables utiles aux colisions
+        //On initialise les variables utiles aux collisions
         monster[game.nombreMonstres].timerMort = 0;
         monster[game.nombreMonstres].onGround = 0;
 
-        //On parcour le tableau
+        //On parcourt le tableau
         game.nombreMonstres++;
-
     }
-
 }
 
-/**Fonction qui  permet de mettre à jour les monstres en vérifiant les colisions*/
+/**Fonction qui permet de mettre à jour les monstres en vérifiant les colisions*/
 void renewMonsters(void)
 {
     int i, a;
     //On utilise une boucle for pour parcourir tous les monstres de la liste
     for ( i = 0; i < game.nombreMonstres; i++ )
     {
-        // On test les collisions entre les monstres et le boulles de feu
+        // On teste les collisions entre les monstres et les projectiles
         for ( a = 0; a < game.nombreProjectiles; a++ )
         {
             if (collide(&monster[i], &projectile[a]))
             {
-                //Timer à 1 pour le tuer
+                //Timer à 1 du monstre pour l'éliminer
                 monster[i].timerMort = 1;
                 playSoundFx(DESTROY);
 
@@ -58,6 +56,7 @@ void renewMonsters(void)
                 game.nombreProjectiles--;
             }
         }
+
         if (monster[i].timerMort == 0)
         {
             monster[i].dirX = 0;
@@ -76,35 +75,29 @@ void renewMonsters(void)
                 monster[i].direction = LEFT;
                 modifyAnimation(&monster[i], "graphics/monster1.png");
             }
-            //Test de si le monstre est arrive dans un mur ou dans le vide
+            //Vérification si le monstre est face au vide
             if (checkFall(monster[i]) == 1) monster[i].dirX = 0;
 
-            //Deplacement du monstre en fonction de la direction du monstre
+            //Deplacement du monstre en fonction de sa direction
             else if(monster[i].direction == LEFT) monster[i].dirX -= 2;
             else monster[i].dirX += 2;
 
-
-            //On sauvegarde les coordonnées du monstre pour pouvoir gérer les demi-tours
-            //avant que mapCollision modifie.
-            monster[i].saveX = monster[i].x;
-
-            //On fait comme pour le joueur, on detecte les collisions avec la map
+            //On détecte les collisions avec la map
             monsterCollisionWithMap(&monster[i]);
 
-            //Detection des collisions avec le joueur
-            //Si c'est égal à 1,  on diminue ses points de vie
+            //Détection des collisions avec le joueur si c'est égal à 1, on diminue ses points de vie
             if (collide(&player, &monster[i]) == 1)
             {
                 if(player.life > 1)
                 {
-                    //quand le timer d'invincibilité est à 0 on enleve un coeur et obn reaugment le timer
+                    //quand le timer d'invincibilité est à 0 on enlève un coeur et on reaugmente le timer
                     if(player.invincibleTimer == 0 && player.onMethamphetamine != 1)
                     {
                         player.life--;
                         player.invincibleTimer = 60;
                         //Son
                         playSoundFx(DESTROY);
-                        //On met le timer de mort du monstre à 1 pour qu'il meurt instant
+                        //On met le timer de mort du monstre à 1 pour qu'il meurt instantanément
                         monster[i].timerMort = 1;
                         player.dirY = -JUMP_HEIGHT;
                     }
@@ -123,21 +116,19 @@ void renewMonsters(void)
                 monster[i].timerMort = 1;
                 playSoundFx(DESTROY);
             }
-          }
+        }
 
-        //Si le monstre meurt, on active une tempo
+        //Si le monstre tombe dans le vide, on active un timer
         if (monster[i].timerMort > 0)
         {
             monster[i].timerMort--;
             /* Et on le remplace simplement par le dernier du tableau puis on
-            rétrécit le tableau d'une case (on ne peut pas laisser de case vide) */
+            rétrécit le tableau d'une case (on ne peut pas laisser de cases vide) */
             if (monster[i].timerMort == 0)
             {
-                /* Libère le sprite pour eviter les fuites memoires :) */
-                if (monster[i].sprite != NULL)
-                {
-                    SDL_FreeSurface(monster[i].sprite);
-                }
+                //On libère le sprite
+                if (monster[i].sprite != NULL) SDL_FreeSurface(monster[i].sprite);
+
                 monster[i] = monster[game.nombreMonstres-1];
                 game.nombreMonstres--;
             }
@@ -153,8 +144,7 @@ int collide(GameObject *player, GameObject *monster)
     || (player->y >= monster->y + monster->h) || (player->y + player->h <= monster->y))
     return 0; //pas collision
 
-    //Sinon quand il y a collision, si le joueur est au-dessus du monstre, on renvoie 2.
-    //On gerera plus tard la mort du monstre et le rebond du joueur
+    //Sinon quand il y a collision, si le joueur est au-dessus du monstre, on renvoie 2
     else if (player->y + player->h <= monster->y + 10)
     {
         player->dirY =- JUMP_HEIGHT;
@@ -164,14 +154,14 @@ int collide(GameObject *player, GameObject *monster)
     else return 1;
 }
 
-/**Fonction qui teste si le monstre va tomber et qui renvoie 1 si il doit tombe, sinon 0*/
+/**Fonction qui teste si le monstre va tomber et qui renvoie 1 s'il doit tomber, 0 sinon*/
 int checkFall(GameObject monster)
 {
     int x, y;
-    //On test la direction pour savoir si on doit prendre en compte la largeur du monstre
+    //On teste la direction pour savoir si on doit prendre en compte la largeur du monstre
     if (monster.direction == LEFT)
     {
-        //On calcul la futur position pour gérer le cas où il sortirait de la map
+        //On calcule la future position pour gérer le cas où il sortirait de la map
         x = (int)(monster.x + monster.dirX) / TILE_SIZE;
         y = (int)(monster.y + monster.h - 1) /  TILE_SIZE;
         if (y < 0)
@@ -183,7 +173,7 @@ int checkFall(GameObject monster)
         if (x > MAX_MAP_X)
             x = MAX_MAP_X;
 
-        //On vérifie si il y a du vide en dessous du monstre
+        //On vérifie s'il y a du vide en dessous du monstre
         if (map.tile[y + 1][x] < BLANK_TILE) return 1;
         else return 0;
     }
