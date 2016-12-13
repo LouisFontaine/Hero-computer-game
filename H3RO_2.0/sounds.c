@@ -1,6 +1,6 @@
-/**Fichier contenant toutes les fonction relatives à l'audio dans le game.
+/**Fichier contenant toutes les fonctions relatives à l'audio dans le jeu
 Attention différence entre une musique et un son, une musique c'est le
-bruit de fond permanent du game. alors que les sons sont les bruits utilisé
+bruit de fond permanent du jeu alors que les sons sont les bruits utilisés
 lors d'une action (un saut, mort, kill, etc...)*/
 
 #include "sounds.h"
@@ -8,9 +8,8 @@ lors d'une action (un saut, mort, kill, etc...)*/
 /**Fonction permettant de charger une musique*/
 void loadSong( char filename[200] )
 {
-
-     //Si il y avait une chanson avant on la libère
-     if ( game.musique != NULL )
+     //S'il y avait une chanson avant on la libère
+     if (game.musique != NULL)
      {
         Mix_HaltMusic();
         Mix_FreeMusic(game.musique);
@@ -25,11 +24,7 @@ void loadSong( char filename[200] )
     }
 
     //On joue la musique à l'infini
-    if(Mix_PlayMusic(game.musique, -1) == -1)
-    {
-        printf("Mix_PlayMusic: %s\n", Mix_GetError());
-    }
-
+    if(Mix_PlayMusic(game.musique, -1) == -1) printf("Mix_PlayMusic: %s\n", Mix_GetError());
 }
 
 /**Fonction permettant de charger les sons*/
@@ -77,7 +72,7 @@ void freeSound(void)
     Mix_FreeChunk(game.star_sound);
 }
 
-/**Fonction fait jouer un son en fonction du type de son passé en argument*/
+/**Fonction qui fait jouer un son en fonction du type de son passé en argument*/
 void playSoundFx(int type)
 {
     switch (type)
