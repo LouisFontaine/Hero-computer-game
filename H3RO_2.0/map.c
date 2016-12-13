@@ -71,7 +71,7 @@ void paintMap(void)
     y1 = (map.startY % TILE_SIZE) * -1;
     y2 = y1 + SCREEN_HEIGHT + (y1 == 0 ? 0 : TILE_SIZE);
 
-    //Nous créons un timer afin d'animer le game.avec les deux tilesets
+    //Nous créons un timer afin d'animer le jeu avec les deux tilesets
     if(map.mapTimer <= 0)
     {
         if(map.tileSetNumber == 0)
@@ -191,7 +191,7 @@ void mapCollision(GameObject *entity)
                     entity->respawnX = x2 * TILE_SIZE;
                     entity->respawnY = (y1 * TILE_SIZE) - entity->h;
 
-                    //Nous mettons la tile de checkpoint validé
+                    //Nous mettons la tile du checkpoint validé
                     map.tile[y1][x2] += 1;
                 }
                 else if (map.tile[y2][x2] == TILE_CHECKPOINT)
@@ -203,7 +203,7 @@ void mapCollision(GameObject *entity)
                     entity->respawnX = x2 * TILE_SIZE;
                     entity->respawnY = (y2 * TILE_SIZE) - entity->h;
 
-                    //Nous mettons la tile de checkpoint validé
+                    //Nous mettons la tile du checkpoint validé
                     map.tile[y2][x2] += 1;
                 }
 
@@ -275,10 +275,8 @@ void mapCollision(GameObject *entity)
     }
 
     //Nous faisons de même avec les mouvements verticaux
-    if(entity->w > TILE_SIZE)
-        i = TILE_SIZE;
-    else
-        i = entity->w;
+    if(entity->w > TILE_SIZE) i = TILE_SIZE;
+    else i = entity->w;
 
     for (;;)
     {
@@ -449,12 +447,12 @@ void changeMap(void)
     sprintf(file, "map/map%d-%d.txt", level->glob, level->info );
     loadMap(file);
 
-    //Nous choisissons le bon fond
+    //Nous choisissons le fond en conséquences
     if(level->info == 1) map.background = loadImage("graphics/background1.png");
     if(level->info == 2) map.background = loadImage("graphics/background2.png");
     if(level->info == 3) map.background = loadImage("graphics/background3.png");
 
-    //Nous chargeons le tileset
+    //Nous chargeons le tileset aproprié
     if(map.tileSet != NULL) SDL_FreeSurface(map.tileSet);
     if(map.tileSetB != NULL) SDL_FreeSurface(map.tileSetB);
 
@@ -527,7 +525,7 @@ void monsterCollisionWithMap(GameObject *entity)
 
         if (x1 >= 0 && x2 < MAX_MAP_X && y1 >= 0 && y2 < MAX_MAP_Y)
         {
-            //mouvement vers le bas
+            //Mouvement vers le bas
             if (entity->dirY > 0)
             {
                 if (map.tile[y2][x1] > BLANK_TILE || map.tile[y2][x2] > BLANK_TILE)
@@ -538,7 +536,7 @@ void monsterCollisionWithMap(GameObject *entity)
                     entity->onGround = 1;
                 }
             }
-            //mouvement vers le haut
+            //Mouvement vers le haut
             else if (entity->dirY < 0)
             {
                 if (map.tile[y1][x1] > BLANK_TILE || map.tile[y1][x2] > BLANK_TILE)
@@ -560,7 +558,7 @@ void monsterCollisionWithMap(GameObject *entity)
     entity->x += entity->dirX;
     entity->y += entity->dirY;
 
-    //blocage de l'entité à la taille de l'ecran
+    //Blocage de l'entité à la taille de l'ecran
     if (entity->x < 0) entity->x = 0;
 
     else if (entity->x + entity->w >= map.maxX) entity->x = map.maxX - entity->w - 1;

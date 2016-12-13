@@ -31,7 +31,7 @@ void initialize(char *title)
     // Pour cacher la souris
     SDL_ShowCursor(SDL_DISABLE);
 
-    //Lancement de SDL_TTF sinon on quitte
+    // Lancement de SDL_TTF sinon on quitte
     if (TTF_Init() < 0)
     {
         printf("Couldn't initialize SDL TTF: %s\n", SDL_GetError());
@@ -74,7 +74,6 @@ void load(void)
     // Charge l'image de fond du menu start et du jeu
     game.fondMenuStart = loadImage("graphics/fondMenuStart.png");
 
-
     changeMap();
 
     //On initialise le timer de la map
@@ -85,7 +84,7 @@ void load(void)
     game.lives = LIVES_TOTAL;
     game.etoiles = 0;
 
-    //Nous chargeons les huds de la vie et des etoiles
+    //Nous chargeons les HUDs de la vie
     game.HUD_vie = loadImage("graphics/life.png");
 
     //Nous chargeons le projectile et la plateforme
@@ -143,7 +142,7 @@ void clean()
         SDL_FreeSurface(game.fondMenuStart);
     }
 
-    //libération des tileset
+    //Libération des tileset
     if (map.tileSet != NULL)
     {
         SDL_FreeSurface(map.tileSet);
@@ -179,7 +178,7 @@ void clean()
         SDL_FreeSurface(game.Shuriken_image);
     }
 
-    //Libèration de la plateforme
+    //Libération de la plateforme
     if (game.Platform != NULL)
     {
         SDL_FreeSurface(game.Platform);

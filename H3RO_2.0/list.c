@@ -1,6 +1,9 @@
+/**Fichier contenant des fonctions manipulant les listes*/
+
 #include "list.h"
 
-liste new_singleton(int c) ///création d'un maillon de la liste
+/**création d'un maillon de la liste*/
+liste new_singleton(int c)
 {
     liste l = malloc(sizeof(node));
     l->info = c;
@@ -9,7 +12,8 @@ liste new_singleton(int c) ///création d'un maillon de la liste
     return l;
 }
 
-liste create_list(int c) ///création d'une liste
+/**donction de création d'une liste de taille c*/
+liste create_list(int c)
 {
     int i = 1;
     liste l = NULL;

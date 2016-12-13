@@ -6,7 +6,6 @@
 TTF_Font *loadFont(char *name, int size)
 {
     //Chargement de la police choisie avec SDL_TTF
-
     TTF_Font *font = TTF_OpenFont(name, size);
 
     if (font == NULL)

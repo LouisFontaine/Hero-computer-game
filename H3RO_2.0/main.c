@@ -32,7 +32,6 @@ int main(int argc, char *argv[])
     //A la fin du programme nous libérons toutes les données en mémoire
     atexit(clean);
 
-
     //Boucle infinie pour lancer le jeu
     go = 1;
     while (go == 1)
