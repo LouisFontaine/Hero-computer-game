@@ -16,7 +16,6 @@ typedef struct Cursor
     int x, y, tileID;
 } Cursor;
 
-
 /**Structure pour gérer un niveau */
 typedef struct Gestion
 {
