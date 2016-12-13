@@ -216,7 +216,6 @@ void renewPlayer(void)
             changeMap();
         }
     }
-
  }
 
 /**Fonction qui a pour but de calculer les coordonnées d'affichage de la map en fonction
@@ -258,34 +257,34 @@ void getItem(int itemNumber)
             //On incrémente le compteur de coeur
             if(player.life < 3) player.life++;
             playSoundFx(STAR);
-
         break;
 
         //Pour le powerUp cannabis
         case 3:
             player.onCanabis = 1;
             player.timeSinceCanabis = SDL_GetTicks();
-
         break;
 
         //Pour le powerUp cocaine
         case 4:
             player.onCocaine = 1;
             player.timeSinceCocaine = SDL_GetTicks();
-
         break;
 
         //Pourle powerUp Ecstasy
         case 5:
-            player.onEcstasy = 1;
-            player.timeSinceEcstasy = SDL_GetTicks();
-
+            player.onMethamphetamine = 1;
+            player.timeSinceMethamphetamine = SDL_GetTicks();
         break;
 
         case 6:
-            player.onMethamphetamine = 1;
-            player.timeSinceMethamphetamine = SDL_GetTicks();
 
+
+        break;
+
+        case 7:
+            player.onEcstasy = 1;
+            player.timeSinceEcstasy = SDL_GetTicks();
         break;
 
         default:
