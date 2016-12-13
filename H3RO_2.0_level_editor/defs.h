@@ -8,18 +8,18 @@
 #define SCREEN_WIDTH 1080
 #define SCREEN_HEIGHT 720
 
-/* Valeur RGB pour la transparence (canal alpha) */
- #define TRANS_R 255
- #define TRANS_G 0
- #define TRANS_B 255
+/* Valeur RVB pour la transparence (canal alpha) */
+#define TRANS_R 255
+#define TRANS_G 0
+#define TRANS_B 255s
 
 
- /* Taille maxi de la map : 400 x 300 tiles */
- #define MAX_MAP_X 400
- #define MAX_MAP_Y 300
+/* Taille maxi de la map : 400 x 300 tiles */
+#define MAX_MAP_X 400
+#define MAX_MAP_Y 300
 
- /* Taille d'une tile (32 x 32 pixels) */
- #define TILE_SIZE 32
+/* Taille d'une tile (32 x 32 pixels) */
+#define TILE_SIZE 32
 
 /* N° de la tile transparente */
 #define BLANK_TILE 0
