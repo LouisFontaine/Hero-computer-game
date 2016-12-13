@@ -1,7 +1,6 @@
 /**Fichier principal du jeu*/
 
 #include "main.h"
-#include "time.h"
 
 int main(int argc, char *argv[])
 {
@@ -14,7 +13,7 @@ int main(int argc, char *argv[])
     int go, i;
     liste l = NULL;
 
-    //Appel à la fonction initialize pour lancer la SDL
+    //Appel Ã  la fonction initialize pour lancer la SDL
     initialize("H3RO");
 
     //Initialisation de l'ordre des niveaux
@@ -29,20 +28,20 @@ int main(int argc, char *argv[])
     //Chargement des ressources
     load();
 
-    //A la fin du programme nous libérons toutes les données en mémoire
+    //A la fin du programme nous libÃ©rons toutes les donnÃ©es en mÃ©moire
     atexit(clean);
 
     //Boucle infinie pour lancer le jeu
     go = 1;
     while (go == 1)
     {
-        //Appel de getInput pour attendre les entrées de l'utilisateur
+        //Appel de getInput pour attendre les entrÃ©es de l'utilisateur
         getInput();
 
         //Si on n'est pas dans un menu
         if(game.onMenu == 0)
         {
-            //Mise à jour du jeu
+            //Mise Ã  jour du jeu
             verifyPowerUp(SDL_GetTicks());
             renewPlayer();
             doProjectiles();
@@ -65,7 +64,7 @@ int main(int argc, char *argv[])
         //Si on n'est pas dans un menu
         if(game.onMenu == 0)
         {
-            //On affiche tout le contenu à afficher
+            //On affiche tout le contenu Ã  afficher
             paint();
         }
         else
@@ -98,7 +97,7 @@ int main(int argc, char *argv[])
                 SDL_Delay(1);
             }
         }
-        //Fonctiion pour limiter à 60fps
+        //Fonctiion pour limiter Ã  60fps
         delay(frameLimit);
         frameLimit = SDL_GetTicks() + 16;
     }
