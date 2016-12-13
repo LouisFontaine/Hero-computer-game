@@ -227,7 +227,7 @@
 
         if (cursor.tileID < 0)
         {
-            cursor.tileID = MAX_TILES - 1;
+            cursor.tileID = MAX_TILES;
         }
         else if (cursor.tileID > MAX_TILES)
         {
