@@ -22,7 +22,7 @@ typedef struct GameObject
     //Sprite du héros
     SDL_Surface *sprite;
 
-    //Points de vie
+    //Points de vies
     int life, invincibleTimer;
 
     //coordonnées du héro
@@ -39,7 +39,7 @@ typedef struct GameObject
     int frameNumber, frameTimer;
     int state, direction;
 
-    //Variables opur les collision et le temps de mort
+    //Variables pour les collisions et le timer de mort
     int onGround, timerMort;
     float dirX, dirY;
 
@@ -50,7 +50,7 @@ typedef struct GameObject
     int beginX, beginY;
     int type, player_dessus;
 
-    //Variables pour gérer les powerup
+    //Variables pour gérer les powerups
     int onCanabis;
     int timeSinceCanabis;
 

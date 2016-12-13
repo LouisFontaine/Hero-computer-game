@@ -7,7 +7,6 @@ extern GameObject player;
 extern Map map;
 extern GameObject projectile[];
 
-
 // Prototypes des fonctions utilisées
 extern SDL_Surface *loadImage(char *name);
 extern void mapCollision(GameObject *entity);
