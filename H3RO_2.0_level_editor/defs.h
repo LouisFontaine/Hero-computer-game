@@ -11,7 +11,7 @@
 /* Valeur RVB pour la transparence (canal alpha) */
 #define TRANS_R 255
 #define TRANS_G 0
-#define TRANS_B 255s
+#define TRANS_B 255
 
 
 /* Taille maxi de la map : 400 x 300 tiles */
