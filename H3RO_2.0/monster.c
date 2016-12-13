@@ -102,9 +102,9 @@ void renewMonsters(void)
                 if(player.life > 1)
                 {
                     //quand le timer d'invincibilité est à 0 on enleve un coeur et obn reaugment le timer
-                    if(player.invincibleTimer == 0)
+                    if(player.invincibleTimer == 0 && player.onMethamphetamine != 1)
                     {
-                        if(player.onMethamphetamine != 1) player.life--;
+                        player.life--;
                         player.invincibleTimer = 60;
                         //Son
                         playSoundFx(DESTROY);
