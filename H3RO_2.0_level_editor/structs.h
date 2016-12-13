@@ -1,9 +1,7 @@
+/**Fichier contenant les différentes structures utilisées pour le jeux*/
 #include "defs.h"
 
-/* Structures qui seront utilisées pour gérer le game */
-
-/* Structure pour gérer l'input (clavier puis joystick) */
-
+/**Structure pour l'input*/
 typedef struct Input
 {
     int left, right, up, down, add, remove;
@@ -12,23 +10,21 @@ typedef struct Input
     int leveldown, levelup;
 } Input;
 
-
+/**Structure utilisée pour les monstres et le héro*/
 typedef struct Cursor
 {
     int x, y, tileID;
 } Cursor;
 
 
-/* Structure pour gérer le niveau (à compléter plus tard) */
-
+/**Structure pour gérer un niveau */
 typedef struct Gestion
 {
     SDL_Surface *screen;
     int level;
 } Gestion;
 
- /* Structure pour gérer la map à afficher (à compléter plus tard) */
-
+/**Structure pour représenter la map*/
 typedef struct Map
 {
     SDL_Surface *background, *tileSet;

@@ -1,9 +1,10 @@
+/**Fichier pour initialiser la SDL et la charger puis pour la libérer*/
 #include "initialize.h"
 
 /**Fonction permettant d'initialiser l'editeur*/
 void init(char *title)
 {
-    // Initialise SDL Video Si ça ne fonctionne pas, on quitte
+    // Initialise SDL Video si ça ne fonctionne pas, on quitte
     if (SDL_Init(SDL_INIT_VIDEO ) < 0)
     {
         printf("Could not initialize SDL: %s\n", SDL_GetError());
@@ -23,6 +24,7 @@ void init(char *title)
     //Nom de la fenêtre
     SDL_WM_SetCaption(title, NULL);
 
+    //Icone
     SDL_WM_SetIcon(SDL_LoadBMP("graphics/icone.bmp"), NULL);
 
     //Nous mettons le niveau 1 en premier

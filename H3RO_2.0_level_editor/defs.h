@@ -14,7 +14,7 @@
  #define TRANS_B 255
 
 
- /* Taille maxi de la map : on voit large : 400 x 300 tiles */
+ /* Taille maxi de la map : 400 x 300 tiles */
  #define MAX_MAP_X 400
  #define MAX_MAP_Y 300
 
@@ -27,5 +27,5 @@
 /* MAX_TILES = numéro de la dernière tile */
 #define MAX_TILES 22
 
-//Nombre maximum de levels
+/* Nombre maximum de levels */
 #define LEVEL_MAX   3

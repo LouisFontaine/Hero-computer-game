@@ -1,7 +1,6 @@
 #include "structs.h"
 
-/* Prototypes des fonctions utilisées */
-
+// Prototypes
 extern void init(char *);
 extern void clean(void);
 extern void getInput(void);
@@ -11,8 +10,7 @@ extern void delay(unsigned int frameLimit);
 extern void update(void);
 
 
-/* Déclaration des structures globales utilisées par le game */
-
+// Déclaration des structures globales utilisées par le jeu
 Input input;
 Gestion game;
 Map map;

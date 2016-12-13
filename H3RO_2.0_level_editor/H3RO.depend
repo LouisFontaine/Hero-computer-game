@@ -796,3 +796,44 @@
 1481055910 c:\users\louis\desktop\projet_l2-projet-3.0 - copie\h3ro_2.0_level_editor\paint.h
 	"structs.h"
 
+1481666948 source:c:\users\louis\desktop\projet_l2_2.0-master\h3ro_2.0_level_editor\initialize.c
+	"initialize.h"
+
+1481667080 c:\users\louis\desktop\projet_l2_2.0-master\h3ro_2.0_level_editor\initialize.h
+	"structs.h"
+
+1481667295 c:\users\louis\desktop\projet_l2_2.0-master\h3ro_2.0_level_editor\structs.h
+	"defs.h"
+
+1481667080 c:\users\louis\desktop\projet_l2_2.0-master\h3ro_2.0_level_editor\defs.h
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<math.h>
+	<SDL/SDL.h>
+	<SDL/SDL_image.h>
+
+1481666948 source:c:\users\louis\desktop\projet_l2_2.0-master\h3ro_2.0_level_editor\input.c
+	"input.h"
+
+1481667399 c:\users\louis\desktop\projet_l2_2.0-master\h3ro_2.0_level_editor\input.h
+	"structs.h"
+
+1481666961 source:c:\users\louis\desktop\projet_l2_2.0-master\h3ro_2.0_level_editor\main.c
+	"main.h"
+
+1481667295 c:\users\louis\desktop\projet_l2_2.0-master\h3ro_2.0_level_editor\main.h
+	"structs.h"
+
+1481666948 source:c:\users\louis\desktop\projet_l2_2.0-master\h3ro_2.0_level_editor\map.c
+	"map.h"
+
+1481667295 c:\users\louis\desktop\projet_l2_2.0-master\h3ro_2.0_level_editor\map.h
+	"structs.h"
+
+1481666948 source:c:\users\louis\desktop\projet_l2_2.0-master\h3ro_2.0_level_editor\paint.c
+	"paint.h"
+
+1481667295 c:\users\louis\desktop\projet_l2_2.0-master\h3ro_2.0_level_editor\paint.h
+	"structs.h"
+

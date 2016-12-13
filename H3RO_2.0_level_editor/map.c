@@ -1,14 +1,13 @@
+/**Fichier permettant d'afficher la map et de tester les collisions du joueur et des monstres avec la map*/
 #include "map.h"
 
+/**Fonction pour lire le fichier de la map et puis la charger*/
 void loadMap(char *name)
  {
     int x, y;
     FILE *fp;
 
     fp = fopen(name, "rb");
-
-    /* Si on ne peut pas ouvrir le fichier, on quitte */
-
     if (fp == NULL)
     {
         printf("Failed to open map %s\n", name);
@@ -16,118 +15,72 @@ void loadMap(char *name)
         exit(1);
     }
 
-    /* Lit les données du fichier dans la map */
-
+    //Lit les données du fichier et les mets dans le tableau map
     map.maxX = map.maxY = 0;
 
     for (y = 0; y < MAX_MAP_Y; y++)
     {
         for (x = 0; x < MAX_MAP_X; x++)
         {
-            /* On lit le numéro de la tile et on le copie dans notre tableau */
+            //On lit le numéro de la tile et on le copie dans notre tableau
             fscanf(fp, "%d", &map.tile[y][x]);
 
-            /* Permet de déterminer la taille de la map (voir plus bas) */
+            //Permet de déterminer la taille de la map (voir plus bas)
             if (map.tile[y][x] > 0)
             {
-                if (x > map.maxX)
-                {
-                    map.maxX = x;
-                }
-
-                if (y > map.maxY)
-                {
-                    map.maxY = y;
-                }
+                if (x > map.maxX) map.maxX = x;
+                if (y > map.maxY) map.maxY = y;
             }
         }
     }
 
-
-    /* On change ces coordonnées pour qu'on puisse scroller et éditer la map
-    au maximum */
-
+    //On change ces coordonnées pour qu'on puisse scroller et éditer la map au maximum
     map.maxX = MAX_MAP_X * TILE_SIZE;
     map.maxY = MAX_MAP_Y * TILE_SIZE;
 
-
-    /* Remet à 0 les coordonnées de départ de la map */
-
+    //Remet à 0 les coordonnées de départ de la map
     map.startX = map.startY = 0;
 
-
-    /* Et on referme le fichier */
-
+    //Et on referme le fichier
     fclose(fp);
-
 }
 
+/**Fonction pour afficher la map et ses élements*/
 void paintMap(void)
 {
     int x, y, mapX, x1, x2, mapY, y1, y2, xsource, ysource, a;
 
-   /* On initialise mapX à la 1ère colonne qu'on doit blitter.
-    Celle-ci correspond au x de la map (en pixels) divisés par la taille d'une tile (32)
-    pour obtenir la bonne colonne de notre map
-    Exemple : si x du début de la map = 1026, on fait 1026 / 32
-    et on sait qu'on doit commencer par afficher la 32eme colonne de tiles de notre map */
+    //Nous initialisons mapX à la 1ère colonne qu'on doit blitter
     mapX = map.startX / TILE_SIZE;
 
-    /* Coordonnées de départ pour l'affichage de la map : permet
-    de déterminer à quels coordonnées blitter la 1ère colonne de tiles au pixel près
-    (par exemple, si la 1ère colonne n'est visible qu'en partie, on devra commencer à blitter
-    hors écran, donc avoir des coordonnées négatives - d'où le -1). */
+    //Coordonnées de la SDL pour l'affichage de la map pour déterminer les coordonnées de la 1e colonne
     x1 = (map.startX % TILE_SIZE) * -1;
 
-    /* Calcul des coordonnées de la fin de la map : jusqu'où doit-on blitter ?
-    Logiquement, on doit aller à x1 (départ) + SCREEN_WIDTH (la largeur de l'écran).
-    Mais si on a commencé à blitter en dehors de l'écran la première colonne, il
-    va falloir rajouter une autre colonne de tiles sinon on va avoir des pixels
-    blancs. C'est ce que fait : x1 == 0 ? 0 : TILE_SIZE qu'on pourrait traduire par:
-    if(x1 != 0)
-        x2 = x1 + SCREEN_WIDTH + TILE_SIZE , mais forcément, c'est plus long ;)*/
+    //Nous calculons les coordonnées de la fin de la map
     x2 = x1 + SCREEN_WIDTH + (x1 == 0 ? 0 : TILE_SIZE);
 
-    /* On fait exactement pareil pour calculer y */
+    //De même pour y
     mapY = map.startY / TILE_SIZE;
     y1 = (map.startY % TILE_SIZE) * -1;
     y2 = y1 + SCREEN_HEIGHT + (y1 == 0 ? 0 : TILE_SIZE);
 
 
-    /* Dessine la carte en commençant par startX et startY */
-
-    /* On dessine ligne par ligne en commençant par y1 (0) jusqu'à y2 (480)
-    A chaque fois, on rajoute TILE_SIZE (donc 32), car on descend d'une ligne
-    de tile (qui fait 32 pixels de hauteur) */
-
+    //Nous dessinons ici la map en blittant ligne par ligne
     for (y = y1; y < y2; y += TILE_SIZE)
     {
-        /* A chaque début de ligne, on réinitialise mapX qui contient la colonne
-        (0 au début puisqu'on ne scrolle pas) */
-
+        //Réinitialisation de mapX pour revenir au début de la ligne
         mapX = map.startX / TILE_SIZE;
-
-        /* A chaque colonne de tile, on dessine la bonne tile en allant
-        de x = 0 à x = 640 */
 
         for (x = x1; x < x2; x += TILE_SIZE)
         {
-
-            /* Suivant le numéro de notre tile, on découpe le tileset */
-
+            //On découpe le tileset en fonction du numéro de notre tile
             a = map.tile[mapY][mapX];
 
-            /* Calcul pour obtenir son y (pour un tileset de 10 tiles
-            par ligne, d'où le 10 */
-
+            //calcul des coordonnées sur le tileset
             ysource = a / 10 * TILE_SIZE;
-
-            /* Et son x */
-
             xsource = a % 10 * TILE_SIZE;
 
-            /* Fonction qui blitte la bonne tile au bon endroit */
-
+            //nous blittons la bonne tile aux bonnes coordonnées
             paintTile(map.tileSet, x, y, xsource, ysource);
 
             mapX++;
@@ -136,49 +89,41 @@ void paintMap(void)
         mapY++;
     }
 
-         /* On affiche la tile sélectionnée à côté du curseur */
-         ysource = cursor.tileID / 10 * TILE_SIZE;
-         xsource = cursor.tileID % 10 * TILE_SIZE;
-        paintTile(map.tileSet, cursor.x, cursor.y, xsource, ysource);
-
-
+    //On affiche la tile qu'il faut à coté du curseur
+    ysource = cursor.tileID / 10 * TILE_SIZE;
+    xsource = cursor.tileID % 10 * TILE_SIZE;
+    paintTile(map.tileSet, cursor.x, cursor.y, xsource, ysource);
   }
 
+/**Fonction pour sauvegarder la map dans un fichier*/
 void saveMap(char *name)
 {
     int x, y;
     FILE *fp;
 
     fp = fopen(name, "wb");
-
-    /* Si on ne peut pas charger la map, on quitte */
-
+    //Si on peut pas ouvrir le fichier on quitte
     if (fp == NULL)
     {
         printf("Failed to open map %s\n", name);
-
         exit(1);
     }
 
-
-    /* Sauvegarde la map */
-
+    //Sinon on sauvegarde la map
     for (y=0;y<MAX_MAP_Y;y++)
     {
         for (x=0;x<MAX_MAP_X;x++)
         {
             fprintf(fp, "%d ", map.tile[y][x]);
         }
-
         fprintf(fp, "\n");
     }
 
-
-    /* On referme le fichier */
-
+    //On referme le fichier
     fclose(fp);
  }
 
+ /**Fonction pour reinitialiser la map*/
 void reinitMap(char *name)
 {
     int x, y;
@@ -186,30 +131,23 @@ void reinitMap(char *name)
 
     fp = fopen(name, "wb+");
 
-    /* Si on ne peut pas charger la map, on quitte */
-
+    //Si on peut pas ouvrir le fichier on quitte
     if (fp == NULL)
     {
         printf("Failed to open map %s\n", name);
-
         exit(1);
     }
 
-
-    /* Remplit la map de 0 */
-
+    //Remplit la map de 0
     for (y=0;y<MAX_MAP_Y;y++)
     {
         for (x=0;x<MAX_MAP_X;x++)
         {
             fprintf(fp, "0 ");
         }
-
         fprintf(fp, "\n");
     }
 
-
-    /* On referme le fichier */
-
+    //On referme le fichier
     fclose(fp);
  }
