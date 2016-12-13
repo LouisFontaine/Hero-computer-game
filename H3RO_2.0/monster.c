@@ -113,7 +113,7 @@ void renewMonsters(void)
                         player.dirY = -JUMP_HEIGHT;
                     }
                 }
-                else
+                else if(player.onMethamphetamine != 1)
                 {
                     //On met le timer à 1 pour tuer le joueur intantanément
                     player.timerMort = 1;
