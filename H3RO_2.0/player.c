@@ -40,7 +40,7 @@ void initializePlayer(void)
 
     //Définition de la hauteur et largeur du héro grace au def.h
     player.w = PLAYER_WIDTH;
-    player.h = PLAYER_HEIGTH;
+    player.h = PLAYER_HEIGHT;
 
     //Variables utiles pour le fonctionnement de la gestion des collisions
     player.timerMort = 0;
