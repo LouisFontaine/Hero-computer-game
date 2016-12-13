@@ -271,14 +271,15 @@ void getItem(int itemNumber)
             player.timeSinceCocaine = SDL_GetTicks();
         break;
 
-        //Pourle powerUp Ecstasy
+        //Pour le powerUp Ecstasy
         case 5:
             player.onMethamphetamine = 1;
             player.timeSinceMethamphetamine = SDL_GetTicks();
         break;
 
         case 6:
-
+            player.onChampi = 1;
+            player.timeSinceChampi = SDL_GetTicks();
 
         break;
 
@@ -296,10 +297,27 @@ void getItem(int itemNumber)
 les états des onPowerUp à 0 sinon*/
 void verifyPowerUp(int timeOfTheGame)
 {
+    char file[200];
+
     if (player.onCanabis == 1 && timeOfTheGame > player.timeSinceCanabis + 10 * 1000) player.onCanabis = 0;
     if (player.onCocaine == 1 && timeOfTheGame > player.timeSinceCocaine + 10 * 1000) player.onCocaine = 0;
     if (player.onEcstasy == 1 && timeOfTheGame > player.timeSinceEcstasy + 10 * 1000) player.onEcstasy = 0;
     if (player.onMethamphetamine == 1 && timeOfTheGame > player.timeSinceMethamphetamine + 10 * 1000) player.onMethamphetamine = 0;
+    if (player.onChampi == 1)
+    {
+        sprintf(file, "graphics/tileset4.png");
+        map.tileSet = loadImage(file);
+        sprintf(file, "graphics/tileset4B.png");
+        map.tileSetB = loadImage(file);
+    }
+    if (player.onChampi == 1 && timeOfTheGame > player.timeSinceChampi + 10 * 1000)
+    {
+        sprintf(file, "graphics/tileset%d.png", level->info);
+        map.tileSet = loadImage(file);
+        sprintf(file, "graphics/tileset%dB.png", level->info);
+        map.tileSetB = loadImage(file);
+        player.onChampi = 0;
+    }
 
     return;
 }

@@ -5,6 +5,7 @@ extern Gestion game;
 extern GameObject player;
 extern Input input;
 extern Map map;
+extern liste level;
 
 //Prototype des fonctions externes que nous allons utiliser
 extern SDL_Surface *loadImage(char *name);

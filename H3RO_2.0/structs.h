@@ -60,9 +60,12 @@ typedef struct GameObject
 
     int onEcstasy;
     int timeSinceEcstasy;
-    
+
     int onMethamphetamine;
     int timeSinceMethamphetamine;
+
+    int onChampi;
+    int timeSinceChampi;
 
 } GameObject;
 
