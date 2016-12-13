@@ -44,7 +44,7 @@ void renewStartMenu(void)
     }
 }
 
-///Fonction qui se charge de l'affichage du menu Start
+/**Fonction qui se charge de l'affichage du menu Start*/
 void paintStartMenu(void)
 {
     //On utilise une chaîne de caractère qui va contenir notre texte à afficher
@@ -95,7 +95,7 @@ void renewPauseMenu(void)
     }
 }
 
-///Fonction qui se charge de l'affichage du menu Pause
+/**Fonction qui se charge de l'affichage du menu Pause*/
 void paintPauseMenu(void)
 {
     char text[200];
@@ -106,7 +106,7 @@ void paintPauseMenu(void)
 
 }
 
-///Fonction qui relance le menu start à la fin du jeu
+/**Fonction qui relance le menu start à la fin du jeu*/
 void renewEndMenu(void)
 {
     //Si l'utilisateur appuie sur Enter alors quitte l'état On passe au menu start
@@ -118,7 +118,7 @@ void renewEndMenu(void)
     }
 }
 
-///Fonction qui affiche le menu de victoire
+/**Fonction qui affiche le menu de victoire*/
 void paintEndMenu(void)
 {
     //On utilise une chaine de caractère qui va contenir notre texte à afficher
