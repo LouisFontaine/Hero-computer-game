@@ -23,7 +23,7 @@
 /* Taille d'une tile (32 x 32 pixels) */
 #define TILE_SIZE 32
 
-/* Taille du sprite de notre héros (largeur = width et hauteur = heigth) */
+/* Taille du sprite de notre hÃ©ros (largeur = width et hauteur = heigth) */
 #define PLAYER_WIDTH 39
 #define PLAYER_HEIGTH 78
 
@@ -37,10 +37,10 @@
 /* Constantes pour l'animation  */
 #define TIME_BETWEEN_2_FRAMES 9
 
-///Vitesse de déplacement en pixels du sprite POUR LA COKE!!!!!!!!!
+///Vitesse de dÃ©placement en pixels du sprite POUR LA COKE!!!!!!!!!
 #define PLAYER_SPEED 4
 
-//Valeurs attribuées aux états/directions
+//Valeurs attribuÃ©es aux Ã©tats/directions
 #define WALK_RIGHT 1
 #define WALK_LEFT 2
 #define IDLE 3
@@ -49,10 +49,10 @@
 #define RIGHT 1
 #define LEFT 2
 
-// Constante définissant le seuil entre les tiles traversables (blank) et les tiles solides
+// Constante dÃ©finissant le seuil entre les tiles traversables (blank) et les tiles solides
 #define BLANK_TILE 15
 
-//Autres Tiles spéciales
+//Autres Tiles spÃ©ciales
 
 #define TILE_RESSORT 17
 #define TILE_CHECKPOINT 14
@@ -64,21 +64,21 @@
 #define TILE_Platform_DEBUT 20
 #define TILE_Platform_FIN 21
 
-//Constantes définissant la gravité et la vitesse max de chute
+//Constantes dÃ©finissant la gravitÃ© et la vitesse max de chute
 #define GRAVITY_SPEED 0.6
 #define MAX_FALL_SPEED 10
 #define JUMP_HEIGHT 12
 
-//Nombre max de monstres à l'écran
-#define MONSTRES_MAX 9
+//Nombre max de monstres Ã  l'Ã©cran
+#define MONSTRES_MAX 6
 
 //Nombre maximum de levels
 #define LEVEL_MAX 3
 
-//Nombre maximum de projectiles sur l'écran
+//Nombre maximum de projectiles sur l'Ã©cran
 #define ProjectileS_MAX 3
 
-//Constantes utilisées pour les plateformes
+//Constantes utilisÃ©es pour les plateformes
 #define PLATFORMS_MAX 50
 #define PLATFORMS_TILES_DEBUT 15
 #define PLATFORMS_TILES_FIN 16
