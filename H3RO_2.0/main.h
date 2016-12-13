@@ -30,7 +30,7 @@ extern void init_list_map(liste);
 extern void verifyPowerUp(int);
 
 
-// DÃ©claration des structures globales utilisÃ©es par le jeu
+// Déclaration des structures globales utilisées par le jeu
 Input input;
 Gestion game;
 Map map;
@@ -40,5 +40,5 @@ GameObject projectile[10];
 GameObject Platform[50];
 liste level = NULL;
 
-// DÃ©claration de la police de carractÃ¨re
+// Déclaration de la police de carractère
 TTF_Font *font;
