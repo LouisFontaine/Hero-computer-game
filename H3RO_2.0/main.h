@@ -1,4 +1,5 @@
 #include "structs.h"
+#include "time.h"
 
 // Prototypes
 extern void initialize(char *);
@@ -29,7 +30,7 @@ extern void init_list_map(liste);
 extern void verifyPowerUp(int);
 
 
-// Déclaration des structures globales utilisées par le jeu
+// DÃ©claration des structures globales utilisÃ©es par le jeu
 Input input;
 Gestion game;
 Map map;
@@ -39,5 +40,5 @@ GameObject projectile[10];
 GameObject Platform[50];
 liste level = NULL;
 
-// Déclaration de la police de carractère
+// DÃ©claration de la police de carractÃ¨re
 TTF_Font *font;
