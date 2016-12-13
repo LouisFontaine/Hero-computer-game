@@ -66,12 +66,12 @@ void renewMonsters(void)
             if (monster[i].dirY >= MAX_FALL_SPEED)
                 monster[i].dirY = MAX_FALL_SPEED;
 
-            if (player.x - monster[i].x >= 0)
+            if (player.x - monster[i].x > 0)
             {
                 monster[i].direction = RIGHT;
                 modifyAnimation(&monster[i], "graphics/monster1right.png");
             }
-            else
+            else if (player.x - monster[i].x < 0)
             {
                 monster[i].direction = LEFT;
                 modifyAnimation(&monster[i], "graphics/monster1.png");
