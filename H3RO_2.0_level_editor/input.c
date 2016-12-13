@@ -1,4 +1,4 @@
-/**Fichier contenant la fonction gérant les entrées de la part de l'utilisateur. Elle attend tous les cas suivant venant de l'utilisateur*/
+/**Fichier contenant la fonction gÃ©rant les entrÃ©es de la part de l'utilisateur. Elle attend tous les cas suivant venant de l'utilisateur*/
 
 #include "input.h"
 
@@ -58,11 +58,11 @@
                         input.leveldown = 1;
                     break;
 
-                    case SDLK_z:
+                    case SDLK_w:
                         input.next = 1;
                    break;
 
-                    case SDLK_a:
+                    case SDLK_q:
                         input.previous = 1;
                     break;
 
@@ -142,7 +142,7 @@
         }
     }
 
-    //Enregistrement des coordonnées de la souris
+    //Enregistrement des coordonnÃ©es de la souris
     SDL_GetMouseState(&input.mouseX, &input.mouseY);
 
     input.mouseX /= TILE_SIZE;
@@ -154,13 +154,13 @@
 
  void update(void)
 {
-    //Nous récupérons ici les coordonnées de la souris
+    //Nous rÃ©cupÃ©rons ici les coordonnÃ©es de la souris
     cursor.x = input.mouseX;
     cursor.y = input.mouseY;
 
     char file[120];
 
-    //Gestion du scrolling avec les flèches
+    //Gestion du scrolling avec les flÃ¨ches
     if (input.left == 1)
     {
         map.startX -= TILE_SIZE;
@@ -189,7 +189,7 @@
         if (map.startY + SCREEN_HEIGHT >= map.maxY) map.startY = map.maxY - SCREEN_HEIGHT;
     }
 
-    //Passage d'une map à une autre
+    //Passage d'une map Ã  une autre
     if (input.levelup == 1)
     {
         game.level++;
@@ -211,7 +211,7 @@
     //Gestion pour le remplacement de la tile
     if (input.add == 1) map.tile[(map.startY + cursor.y) / TILE_SIZE][(map.startX + cursor.x) / TILE_SIZE] = cursor.tileID;
 
-    //Même chose ici à part qu'on réinitialise la tile pointée en lui donnant la valeur 0 celle d'une tile vide
+    //MÃªme chose ici Ã  part qu'on rÃ©initialise la tile pointÃ©e en lui donnant la valeur 0 celle d'une tile vide
     else if (input.remove == 1)
     {
 
@@ -220,7 +220,7 @@
         cursor.tileID = 0;
     }
 
-    //défilement des tiles dans un sens où dans un autre
+    //dÃ©filement des tiles dans un sens oÃ¹ dans un autre
     if (input.previous == 1)
     {
         cursor.tileID--;
@@ -253,8 +253,8 @@
         input.next = 0;
     }
 
-    /* On copie le numéro de la tile pointée dans le curseur pour qu'il affiche et colle
-    désormais cette tile */
+    /* On copie le numÃ©ro de la tile pointÃ©e dans le curseur pour qu'il affiche et colle
+    dÃ©sormais cette tile */
 
     if (input.copy == 1)
     {
@@ -262,7 +262,7 @@
         input.copy = 0;
     }
 
-    /* Pour réinitialiser la map, on appelle la fonction reinitMap puis on recharge la map */
+    /* Pour rÃ©initialiser la map, on appelle la fonction reinitMap puis on recharge la map */
 
     if (input.reinit == 1)
     {
@@ -290,7 +290,7 @@
         input.load = 0;
     }
 
-    /* On rajoute un délai entre 2 tours de boucle pour que le scrolling soit moins rapide */
+    /* On rajoute un dÃ©lai entre 2 tours de boucle pour que le scrolling soit moins rapide */
 
     if (input.left == 1 || input.right == 1 || input.up == 1 || input.down == 1)
     {
