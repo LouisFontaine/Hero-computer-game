@@ -51,16 +51,16 @@ void initializePlayer(void)
 
     //Initialisation des effets des powersUp
     player.onCanabis = 0;
-    player.timeSinceCanabis = - TIME_OF_POWER_UP_EFFECTS;
+    player.timeSinceCanabis =- TIME_OF_POWER_UP_EFFECTS;
 
     player.onCocaine = 0;
-    player.timeSinceCocaine = - TIME_OF_POWER_UP_EFFECTS;
+    player.timeSinceCocaine =- TIME_OF_POWER_UP_EFFECTS;
 
     player.onEcstasy = 0;
-    player.timeSinceEcstasy = - TIME_OF_POWER_UP_EFFECTS;
+    player.timeSinceEcstasy =- TIME_OF_POWER_UP_EFFECTS;
 
     player.onMethamphetamine = 0;
-    player.timeSinceMethamphetamine = -TIME_OF_POWER_UP_EFFECTS;
+    player.timeSinceMethamphetamine =- TIME_OF_POWER_UP_EFFECTS;
 }
 
 /**Fonction permettant d'animer le joueur en fonction des inputs*/
@@ -293,13 +293,13 @@ void verifyPowerUp(int timeOfTheGame)
 
     //On remet les onPowerUP à 0 si le temps passé est de 10 secondes
 
-    if (player.onCanabis == 1 && timeOfTheGame > player.timeSinceCanabis + 10 * 1000) player.onCanabis = 0;
+    if (player.onCanabis == 1 && timeOfTheGame > player.timeSinceCanabis + TIME_OF_POWER_UP_EFFECTS * 1000) player.onCanabis = 0;
 
-    if (player.onCocaine == 1 && timeOfTheGame > player.timeSinceCocaine + 10 * 1000) player.onCocaine = 0;
+    if (player.onCocaine == 1 && timeOfTheGame > player.timeSinceCocaine + TIME_OF_POWER_UP_EFFECTS * 1000) player.onCocaine = 0;
 
-    if (player.onEcstasy == 1 && timeOfTheGame > player.timeSinceEcstasy + 10 * 1000) player.onEcstasy = 0;
+    if (player.onEcstasy == 1 && timeOfTheGame > player.timeSinceEcstasy + TIME_OF_POWER_UP_EFFECTS * 1000) player.onEcstasy = 0;
 
-    if (player.onMethamphetamine == 1 && timeOfTheGame > player.timeSinceMethamphetamine + 10 * 1000) player.onMethamphetamine = 0;
+    if (player.onMethamphetamine == 1 && timeOfTheGame > player.timeSinceMethamphetamine + TIME_OF_POWER_UP_EFFECTS * 1000) player.onMethamphetamine = 0;
 
     //Le cas du champi on charge le nouveau tileset
     if (player.onChampi == 1)
@@ -310,7 +310,7 @@ void verifyPowerUp(int timeOfTheGame)
         map.tileSetB = loadImage(file);
     }
     //puis on remet le tileset du niveau après les 10 secondes
-    if (player.onChampi == 1 && timeOfTheGame > player.timeSinceChampi + 10 * 1000)
+    if (player.onChampi == 1 && timeOfTheGame > player.timeSinceChampi + TIME_OF_POWER_UP_EFFECTS * 1000)
     {
         sprintf(file, "graphics/tileset%d.png", level->info);
         map.tileSet = loadImage(file);
