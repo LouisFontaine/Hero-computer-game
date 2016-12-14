@@ -14,3 +14,5 @@ Ensuite (sous codeblocks), aller dans "Settings" puis dans "compiler..." :
 -lmingw32 -lSDLmain -lSDL -lm -lSDL_image -lSDL_net -lSDL_gfx -lSDL_mixer -lSDL_ttf
 
 Le code peut maintenant être compilé sans problème.
+
+Nous avons 2 dossiers l'un contenant le jeu et le deuxième contenant le level editor. Pour le level editor, 
