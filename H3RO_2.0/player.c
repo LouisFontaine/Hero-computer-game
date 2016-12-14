@@ -318,6 +318,5 @@ void verifyPowerUp(int timeOfTheGame)
         map.tileSetB = loadImage(file);
         player.onChampi = 0;
     }
-
     return;
 }
