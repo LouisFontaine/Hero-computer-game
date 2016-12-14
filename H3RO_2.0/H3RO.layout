@@ -1,119 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="animation.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="155" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="font.h" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="69" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="list.h" open="1" top="0" tabpos="24" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="paint.h" open="1" top="0" tabpos="18" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="326" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="player.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="464" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="structs.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1095" topLine="7" />
-		</Cursor>
-		<Folding>
-			<Collapse line="6" />
-			<Collapse line="63" />
-			<Collapse line="88" />
-			<Collapse line="106" />
-		</Folding>
-	</File>
-	<File name="sounds.h" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="24" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="map.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="16217" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="defs.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1007" topLine="12" />
-		</Cursor>
-	</File>
-	<File name="monster.h" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="503" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="main.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1130" topLine="36" />
-		</Cursor>
-	</File>
-	<File name="paint.c" open="1" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3597" topLine="114" />
-		</Cursor>
-	</File>
-	<File name="list.c" open="1" top="0" tabpos="23" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="341" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="platforms.c" open="1" top="0" tabpos="22" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3264" topLine="54" />
-		</Cursor>
-	</File>
-	<File name="menu.c" open="1" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2897" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="player.c" open="1" top="1" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2183" topLine="0" />
-		</Cursor>
-		<Folding>
-			<Collapse line="8" />
-			<Collapse line="61" />
-			<Collapse line="130" />
-			<Collapse line="214" />
-			<Collapse line="217" />
-			<Collapse line="231" />
-		</Folding>
-	</File>
-	<File name="menu.h" open="1" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="228" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="projectiles.c" open="1" top="0" tabpos="21" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="616" topLine="0" />
-		</Cursor>
-	</File>
 	<File name="animation.c" open="1" top="0" tabpos="25" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="943" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="monster.c" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2677" topLine="53" />
 		</Cursor>
 	</File>
 	<File name="main.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -121,9 +11,44 @@
 			<Cursor1 position="984" topLine="3" />
 		</Cursor>
 	</File>
-	<File name="map.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="player.c" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="446" topLine="0" />
+			<Cursor1 position="10390" topLine="287" />
+		</Cursor>
+	</File>
+	<File name="map.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="15942" topLine="434" />
+		</Cursor>
+	</File>
+	<File name="main.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1130" topLine="36" />
+		</Cursor>
+	</File>
+	<File name="projectiles.c" open="1" top="0" tabpos="21" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="616" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="list.h" open="1" top="0" tabpos="24" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="platforms.c" open="1" top="0" tabpos="22" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3264" topLine="54" />
+		</Cursor>
+	</File>
+	<File name="animation.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="155" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="font.c" open="1" top="0" tabpos="26" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="377" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="sounds.c" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -131,25 +56,88 @@
 			<Cursor1 position="1608" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="initialize.c" open="1" top="0" tabpos="20" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="font.h" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2746" topLine="0" />
+			<Cursor1 position="69" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="paint.h" open="1" top="0" tabpos="18" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="326" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="defs.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1775" topLine="68" />
+		</Cursor>
+	</File>
+	<File name="monster.h" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="503" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="monster.c" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6308" topLine="0" />
 		</Cursor>
 		<Folding>
-			<Collapse line="6" />
-			<Collapse line="72" />
-			<Collapse line="106" />
-			<Collapse line="134" />
+			<Collapse line="142" />
 		</Folding>
 	</File>
-	<File name="font.c" open="1" top="0" tabpos="26" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="menu.c" open="1" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="377" topLine="0" />
+			<Cursor1 position="2897" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="paint.c" open="1" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3597" topLine="113" />
+		</Cursor>
+	</File>
+	<File name="list.c" open="1" top="0" tabpos="23" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="341" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="input.c" open="1" top="0" tabpos="19" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1963" topLine="56" />
+		</Cursor>
+	</File>
+	<File name="menu.h" open="1" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="228" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="sounds.h" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="24" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="initialize.c" open="1" top="0" tabpos="20" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3758" topLine="55" />
+		</Cursor>
+		<Folding>
+			<Collapse line="6" />
+		</Folding>
+	</File>
+	<File name="structs.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1095" topLine="7" />
+		</Cursor>
+		<Folding>
+			<Collapse line="6" />
+		</Folding>
+	</File>
+	<File name="map.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="610" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="player.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="464" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
