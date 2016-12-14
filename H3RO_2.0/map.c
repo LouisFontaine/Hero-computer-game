@@ -450,13 +450,9 @@ void changeMap(void)
     loadMap(file);
 
     //Nous choisissons le bon fond
-    if(player.onChampi) map.background = loadImage("graphics/background4.png");
-    else
-    {
-        if(level->info == 1) map.background = loadImage("graphics/background1.png");
-        if(level->info == 2) map.background = loadImage("graphics/background2.png");
-        if(level->info == 3) map.background = loadImage("graphics/background3.png");
-    }
+    if(level->info == 1) map.background = loadImage("graphics/background1.png");
+    if(level->info == 2) map.background = loadImage("graphics/background2.png");
+    if(level->info == 3) map.background = loadImage("graphics/background3.png");
 
     //Nous chargeons le tileset
     if(map.tileSet != NULL) SDL_FreeSurface(map.tileSet);

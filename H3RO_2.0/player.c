@@ -272,7 +272,8 @@ void getItem(int itemNumber)
         case 6:
             player.onChampi = 1;
             player.timeSinceChampi = SDL_GetTicks();
-            changeMap();
+            map.background = loadImage("graphics/background4.png");
+
         break;
 
         //Pour le powerUp Ecstasy
@@ -318,7 +319,9 @@ void verifyPowerUp(int timeOfTheGame)
         sprintf(file, "graphics/tileset%dB.png", level->info);
         map.tileSetB = loadImage(file);
         player.onChampi = 0;
-        changeMap();
+        if(level->info == 1) map.background = loadImage("graphics/background1.png");
+        if(level->info == 2) map.background = loadImage("graphics/background2.png");
+        if(level->info == 3) map.background = loadImage("graphics/background3.png");
     }
     return;
 }
