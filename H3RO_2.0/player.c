@@ -51,16 +51,16 @@ void initializePlayer(void)
 
     //Initialisation des effets des powersUp
     player.onCanabis = 0;
-    player.timeSinceCanabis =- TIME_OF_POWER_UP_EFFECTS;
+    player.timeSinceCanabis = -TIME_OF_POWER_UP_EFFECTS;
 
     player.onCocaine = 0;
-    player.timeSinceCocaine =- TIME_OF_POWER_UP_EFFECTS;
+    player.timeSinceCocaine = -TIME_OF_POWER_UP_EFFECTS;
 
     player.onEcstasy = 0;
-    player.timeSinceEcstasy =- TIME_OF_POWER_UP_EFFECTS;
+    player.timeSinceEcstasy = -TIME_OF_POWER_UP_EFFECTS;
 
     player.onMethamphetamine = 0;
-    player.timeSinceMethamphetamine =- TIME_OF_POWER_UP_EFFECTS;
+    player.timeSinceMethamphetamine = -TIME_OF_POWER_UP_EFFECTS;
 }
 
 /**Fonction permettant d'animer le joueur en fonction des inputs*/
