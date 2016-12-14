@@ -66,7 +66,6 @@ void initializePlayer(void)
 /**Fonction permettant d'animer le joueur en fonction des inputs*/
 void renewPlayer(void)
 {
-
   //Timer pour qu'on ne gère le joueur que s'il est en vie
   if (player.timerMort == 0)
   {
@@ -109,7 +108,7 @@ void renewPlayer(void)
         }
     }
 
-    //Fait l'annimation d'inactivité si le jooueur est sur le sol et qu'il ne fait rien
+    //Fait l'animation d'inactivité si le joueur est sur le sol et qu'il ne fait rien
     else if(input.right == 0 && input.left == 0 && player.onGround == 1)
     {
         //On vérifie que le joueur n'était pas déja innactif pour ne pas recharger l'animation
@@ -227,6 +226,7 @@ void centerScrollingOnPlayer(void)
 /**Fonction qui au joueur de récuperer les étoiles et les coeurs*/
 void getItem(int itemNumber)
 {
+    char file[200];
     switch(itemNumber)
     {
         //Pour les etoiles
@@ -272,7 +272,16 @@ void getItem(int itemNumber)
         case 6:
             player.onChampi = 1;
             player.timeSinceChampi = SDL_GetTicks();
+
+            if(map.background != NULL) SDL_FreeSurface(map.background);
+            if(map.tileSet != NULL) SDL_FreeSurface(map.tileSet);
+            if(map.tileSetB != NULL) SDL_FreeSurface(map.tileSetB);
+
             map.background = loadImage("graphics/background4.png");
+            sprintf(file, "graphics/tileset4.png");
+            map.tileSet = loadImage(file);
+            sprintf(file, "graphics/tileset4B.png");
+            map.tileSetB = loadImage(file);
 
         break;
 
@@ -303,22 +312,20 @@ void verifyPowerUp(int timeOfTheGame)
 
     if (player.onMethamphetamine == 1 && timeOfTheGame > player.timeSinceMethamphetamine + TIME_OF_POWER_UP_EFFECTS * 1000) player.onMethamphetamine = 0;
 
-    //Le cas du champi on charge le nouveau tileset
-    if (player.onChampi == 1)
-    {
-        sprintf(file, "graphics/tileset4.png");
-        map.tileSet = loadImage(file);
-        sprintf(file, "graphics/tileset4B.png");
-        map.tileSetB = loadImage(file);
-    }
-    //puis on remet le tileset du niveau après les 10 secondes
+    //on remet le tileset du niveau après les 10 secondes
     if (player.onChampi == 1 && timeOfTheGame > player.timeSinceChampi + TIME_OF_POWER_UP_EFFECTS * 1000)
     {
+        player.onChampi = 0;
+
+        if(map.background != NULL) SDL_FreeSurface(map.background);
+        if(map.tileSet != NULL) SDL_FreeSurface(map.tileSet);
+        if(map.tileSetB != NULL) SDL_FreeSurface(map.tileSetB);
+
         sprintf(file, "graphics/tileset%d.png", level->info);
         map.tileSet = loadImage(file);
         sprintf(file, "graphics/tileset%dB.png", level->info);
         map.tileSetB = loadImage(file);
-        player.onChampi = 0;
+
         if(level->info == 1) map.background = loadImage("graphics/background1.png");
         if(level->info == 2) map.background = loadImage("graphics/background2.png");
         if(level->info == 3) map.background = loadImage("graphics/background3.png");

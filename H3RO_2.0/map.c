@@ -449,6 +449,7 @@ void changeMap(void)
     sprintf(file, "map/map%d-%d.txt", level->glob, level->info );
     loadMap(file);
 
+    if(map.background != NULL) SDL_FreeSurface(map.background);
     //Nous choisissons le bon fond
     if(level->info == 1) map.background = loadImage("graphics/background1.png");
     if(level->info == 2) map.background = loadImage("graphics/background2.png");
