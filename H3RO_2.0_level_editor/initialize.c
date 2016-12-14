@@ -42,6 +42,8 @@ void load(void)
     if (game.level == 2) map.background = loadImage("graphics/background2.png");
     if (game.level == 3) map.background = loadImage("graphics/background3.png");
 
+    map.instructions = loadImage("graphics/instructions.png");
+
     //Sinon on quitte
     if (map.background == NULL)
     {
@@ -75,6 +77,7 @@ void load(void)
 void clean()
 {
     if (map.background != NULL) SDL_FreeSurface(map.background);
+    if (map.background != NULL) SDL_FreeSurface(map.instructions);
 
     if (map.tileSet != NULL) SDL_FreeSurface(map.tileSet);
 

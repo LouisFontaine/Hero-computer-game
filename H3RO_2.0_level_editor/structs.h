@@ -26,7 +26,7 @@ typedef struct Gestion
 /**Structure pour représenter la map*/
 typedef struct Map
 {
-    SDL_Surface *background, *tileSet;
+    SDL_Surface *background, *tileSet, *instructions;
 
     /* Coordonnées de début, lorsqu'on doit dessiner la map */
     int startX, startY;

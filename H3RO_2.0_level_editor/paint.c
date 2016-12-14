@@ -45,6 +45,7 @@ void paint(void)
 
     //affichage du background à (0;0)
     paintImage(map.background, 0, 0);
+    paintImage(map.instructions, 680, 0);
 
     //affichage de toutes les tiles
     paintMap();
