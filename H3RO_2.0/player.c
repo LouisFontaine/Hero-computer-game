@@ -272,6 +272,7 @@ void getItem(int itemNumber)
         case 6:
             player.onChampi = 1;
             player.timeSinceChampi = SDL_GetTicks();
+            changeMap();
         break;
 
         //Pour le powerUp Ecstasy
@@ -317,6 +318,7 @@ void verifyPowerUp(int timeOfTheGame)
         sprintf(file, "graphics/tileset%dB.png", level->info);
         map.tileSetB = loadImage(file);
         player.onChampi = 0;
+        changeMap();
     }
     return;
 }

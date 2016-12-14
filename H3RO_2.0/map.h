@@ -16,3 +16,4 @@ extern Gestion game;
 extern Map map;
 extern GameObject Platform[];
 extern liste level;
+extern GameObject player;

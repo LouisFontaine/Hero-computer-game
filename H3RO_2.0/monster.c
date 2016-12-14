@@ -68,12 +68,14 @@ void renewMonsters(void)
             if (player.x - monster[i].x > 0)
             {
                 monster[i].direction = RIGHT;
-                modifyAnimation(&monster[i], "graphics/monster1right.png");
+                if(player.onChampi) modifyAnimation(&monster[i], "graphics/licorne1.png");
+                else modifyAnimation(&monster[i], "graphics/monster1right.png");
             }
             else if (player.x - monster[i].x < 0)
             {
                 monster[i].direction = LEFT;
-                modifyAnimation(&monster[i], "graphics/monster1.png");
+                if(player.onChampi) modifyAnimation(&monster[i], "graphics/licorne2.png");
+                else modifyAnimation(&monster[i], "graphics/monster1.png");
             }
             //Vérification si le monstre est face au vide
             if (checkFall(monster[i]) == 1) monster[i].dirX = 0;
