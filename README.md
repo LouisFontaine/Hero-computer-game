@@ -15,4 +15,4 @@ Ensuite (sous codeblocks), aller dans "Settings" puis dans "compiler..." :
 
 Le code peut maintenant être compilé sans problème.
 
-Nous avons 2 dossiers l'un contenant le jeu et le deuxième contenant le level editor. Pour le level editor, les blocs durs du début de la map doivent être situés au plus bas de l'écran.
+Nous avons 2 dossiers l'un contenant le jeu et le deuxième contenant le level editor. Pour le level editor, il faut qu'il y ait des blocs au moins jusqu'en bas de l'écran
